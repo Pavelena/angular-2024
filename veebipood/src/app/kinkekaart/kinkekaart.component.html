@@ -1,0 +1,11 @@
+<button class="summa" [class.active]="summa===20" (click)="muudaSumma(20)">20€</button>
+<button class="summa" [class.active]="summa===50" (click)="muudaSumma(50)">50€</button>
+<button class="summa" [class.active]="summa===100"(click)="muudaSumma(100)">100€</button>
+<br>
+<p>Kinkekaart {{ summa }}</p>
+
+<button *ngIf="kogus > 1" (click)="nulli()">Tagasi nulli</button>
+<br>
+<button (click)="vahenda()" [disabled]="kogus===1">-</button>
+<span> {{ kogus }} </span>
+<button (click)="suurenda()">+</button>

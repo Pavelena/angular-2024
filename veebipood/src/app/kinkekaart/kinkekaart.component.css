@@ -1,0 +1,10 @@
+.summa {
+    padding: 10px;
+    background-color: aqua;
+    font-size: 20px;
+    margin: 5px;
+    border: 2px solid transparent
+}
+.summa.active {
+    border-color: purple;
+}
