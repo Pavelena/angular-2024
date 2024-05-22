@@ -1,0 +1,23 @@
+<div class="container">
+
+    <h1>Tegelase muutmine</h1>
+    <form [formGroup]="changeCharacterForm" (submit)="changeCharacter()">
+        <div class="form-group">
+          <label for="first">Eesnimi</label>
+          <input type="text" id="first" formControlName="first" required>
+        </div>
+        <div class="form-group">
+          <label for="last">Perenimi</label>
+          <input type="text" id="last" formControlName="last" required>
+        </div>
+        <div class="form-group">
+          <label for="home">Elukoht</label>
+          <input type="text" id="home" formControlName="home" required>
+        </div>
+        <div class="form-group">
+          <label for="image">Pilt</label>
+          <input type="text" id="image" formControlName="image" required>
+        </div>
+        <button [disabled]="changeCharacterForm.invalid" type="submit"class="btn btn-primary">Muuda</button><br>
+    </form>
+</div>

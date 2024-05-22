@@ -1,0 +1,29 @@
+<h2>Raamatud:</h2>
+<ul>
+    @for ( book of books; track book; let i = $index) {
+        <li>{{ book }}</li>
+    }
+</ul>
+
+<h3>Sorteerimine</h3>
+<div class="flex">
+    <button class="btn btn-secondary" (click)="sortAZ()">Esimese tähe järgi</button>
+    <button class="btn btn-secondary" (click)="sortZA()">Vastupidises järjekorras esimese tähe osas</button>
+    <button class="btn btn-secondary" (click)="sortByLength()">Sõnapikkuse järgi</button>
+    <button class="btn btn-secondary" (click)="sortBy2ndString()">Teise tähe järgi</button>
+    <button class="btn btn-secondary" (click)="sortbyWordLength()">Sõnade arvu järgi </button>
+    <button class="btn btn-secondary" (click)="sortByPrevString()">Eelviimase tähe järgi </button>
+</div>
+
+<h3>Filtreerimine</h3>
+<div class="flex">
+    <button class="btn btn-secondary" (click)="filterStartsWithTHE()">Jäta alles "The"-ga algavad</button>
+    <button class="btn btn-secondary" (click)="filterIncludesAnd()">Jäta alles kellel keskel on "and"</button>
+    <button class="btn btn-secondary" (click)="filterMoreThan10()">Jäta alles rohkemate tähemärkidega sõnad kui 10</button>
+    <button class="btn btn-secondary" (click)="filterLessThan7()">Jäta alles vähemate tähemärkidega sõnad kui 7</button>
+    <button class="btn btn-secondary" (click)="filter3OrMoreWords()">Jäta alles kolme või rohkema sõnalised</button>
+    <button class="btn btn-secondary" (click)="filterPrevIsC()">Jäta alles kellel eelviimane täht on "c"</button>
+</div>
+
+<button class="btn" (click)="restore()">Taasta algseis</button>
+

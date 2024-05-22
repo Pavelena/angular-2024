@@ -1,0 +1,35 @@
+  
+<div class="container">
+  <h1>Tegelased</h1>
+
+  <form>
+    <div class="flex">
+        <input type="text" name="keyword" [(ngModel)]="keyword" (keyup)="searchbyName()">
+    </div>
+  </form>
+
+  <ng-container *ngIf="tegelased.length === 0; else foundCharacters">
+    <app-not-found />
+  </ng-container>
+  <ng-template #foundCharacters>
+    <div class="card-group">
+      @for ( tegelane of tegelased; track tegelane; let i = $index) {
+        <div class="col">
+          <div class="card">
+            <button class="heart" [class.isFavourite]="isFavourite" (click)="loveIt(tegelane)" ></button>
+            <img src="{{ tegelane.image }}" class="card-img" alt="">
+            <div class="card-body">
+              <h2>{{ tegelane.first }} {{ tegelane.last }}</h2>
+              <p>{{ tegelane.home }}</p>
+              <div><a class="btn" [routerLink]="[ '/tegelane', tegelane.first ]">Loe lähemalt</a></div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </ng-template>
+
+  
+</div>
+
+  

@@ -1,0 +1,8 @@
+.inactive {
+    transition: .5s ease;
+    transform: translateY(0);
+}
+.active {
+    transition: .5s ease;
+    transform: translateY(40px);
+}

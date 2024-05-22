@@ -1,1 +1,50 @@
-<p>lisa-toode works!</p>
+<div class="row">
+    <div class="col-4">
+        <form  (submit)="lisa()">
+            <div class="form-group mb-3">
+                <label class="form-label">Pilt</label>
+                <input [(ngModel)]="pilt" name="pilt" type="text" class="form-control">
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Nimi</label>
+                <input [(ngModel)]="nimi" name="nimi" class="form-control">
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Hind</label>
+                <input [(ngModel)]="hind" name="hind" type="number" class="form-control">
+            </div>
+            <div class="form-check mb-3">
+                <input [(ngModel)]="aktiivne" name="aktiivne" type="checkbox" class="form-check-input">
+                <label class="form-check-label" for="aktiivne">Aktiivsus</label>
+            </div>
+
+            <button type="submit"class="btn btn-primary">Sisesta</button><br>
+        </form>
+    </div>
+</div>
+
+<p *ngIf="this.nimi.charAt(0).toUpperCase()!== this.nimi.charAt(0)">Toodet ei saa lisada v2ikse algust2hega!</p>
+<p *ngIf="this.hind > 1000">Liiga suur hind!</p>
+<p *ngIf="this.hind < 0">Ei saa olla miinusm2rgiga!</p>
+
+<table class="table my-4">
+    <thead>
+        <tr>
+            <th>Pilt</th>
+            <th>Nimi</th>
+            <th>Hind</th>
+            <th>Aktiivsus</th>
+            <th>Tegevused</th>
+        </tr>
+    </thead>
+    <tbody>
+    @for (toode of tooted; track toode; let i = $index){
+        <tr>
+            <td><img style="width: 100px" src="{{toode.pilt}}" alt=""></td>
+            <td>{{toode.nimi}}</td>
+            <td>{{toode.hind}}</td>
+            <td>{{toode.aktiivne}}</td>
+        </tr>
+    }
+    </tbody>
+</table>

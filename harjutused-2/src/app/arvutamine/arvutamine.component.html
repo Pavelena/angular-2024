@@ -1,0 +1,9 @@
+<form #arvutamiseVorm ="ngForm" (submit)="inputsSum(arvutamiseVorm)">
+    <div class="flex">
+      <input type="number" ngModel name="var1">
+      <input type="number" ngModel name="var2">
+  
+      <button type="submit">Liida</button>
+    </div>
+</form>
+<p *ngIf="sum > 0">Sisestusväljade summa on: {{ sum }}</p>

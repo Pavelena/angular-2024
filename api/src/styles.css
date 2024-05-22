@@ -1,0 +1,46 @@
+/* You can add global styles to this file, and also import other style files */
+table {
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+td, th {
+    padding: 0.5rem;
+    border-bottom: 1px solid gray;
+    text-align: left;
+}
+
+.keyword {
+    border-radius: 6px;
+    background-color: antiquewhite;
+    padding: 0.25rem 0.5rem;
+    margin: 1rem 0;
+    display: inline-block;
+    cursor: pointer;
+}
+.btn {
+    border-radius: 0.25rem;
+    border: none;
+    background-color: cornflowerblue;
+    padding: 0.25rem 1rem;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+}
+.btn.btn-secondary {
+    border: 1px solid cornflowerblue;
+    background-color: transparent;
+    color: cornflowerblue;
+}
+
+input[type="text"] {
+    font-size: 1rem;
+    padding: 0.25rem 1rem;
+    border-radius: 0.25rem;
+    border-width: 1px;
+}
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}

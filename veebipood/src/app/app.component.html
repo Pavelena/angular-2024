@@ -1,18 +1,45 @@
 <!-- header-->
-<nav>
-  <ul>
-    <li>
-      <a routerLink="">Avaleht</a>
-      <a routerLink="/kinkekaart">Kinkekaardid</a>
-      <a routerLink="/lisa-toode">Lisa toode</a>
-      <a routerLink="/ostukorv">Ostukorv</a>
-      <a routerLink="/seaded">Seaded</a>
-    </li>
-  </ul>
-</nav>
+<header class="navbar mb-4" [class]="darkMode? 'bg-dark':'bg-light'" [attr.data-bs-theme]=" darkMode ? 'dark':'light' ">
+  <nav class="container">
+    <ul class="navbar-nav flex-row">
+      <li class="nav-item">
+        <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="" class="nav-link">Avaleht</a>
+      </li>
+      <li class="nav-item">
+        <a routerLinkActive="active" routerLink="/kinkekaart" class="nav-link">Kinkekaardid</a>
+      </li>
+      <li class="nav-item">
+        <a routerLinkActive="active" routerLink="/lisa-toode" class="nav-link">Lisa toode</a>
+      </li>
+      <li class="nav-item">
+        <a routerLinkActive="active" routerLink="/ostukorv" class="nav-link">Ostukorv</a>
+      </li>
+      <li class="nav-item">
+        <a routerLinkActive="active" routerLink="/seaded" class="nav-link">Seaded</a>
+      </li>
+      <li class="nav-item">
+        <a routerLinkActive="active" routerLink="/halda" class="nav-link">Halda</a>
+      </li>
+      <li class="nav-item">
+        <a routerLinkActive="active" routerLink="/esindused" class="nav-link">Esindused</a>
+      </li>
+      <li class="nav-item">
+        <a routerLinkActive="active" routerLink="/tarnija" class="nav-link">Tarnija</a>
+      </li>
+    </ul>
+    <ul class="navbar-nav flex-row ms-auto">
+      <li class="nav-item"><a class="nav-link" [class.active]="keel === 'est'" (click)="muudaKeel('est')">EST</a></li>
+      <li class="nav-item"><a class="nav-link" [class.active]="keel === 'eng'"(click)="muudaKeel('eng')">ENG</a></li>
+      <li class="nav-item"><a class="nav-link" [class.active]="keel === 'rus'" (click)="muudaKeel('rus')">RUS</a></li>
+      <li><button (click)="muudaMode()" *ngIf="!darkMode">Dark</button></li>
+      <li><button (click)="muudaMode()"*ngIf="darkMode">Light</button></li>
+    </ul>
+  </nav>
+</header>
 
+<div class="container">
 <router-outlet />
-
+</div>
 
 <!-- footer-->
 

@@ -1,1 +1,24 @@
-<p>ostukorv works!</p>
+
+<ng-container *ngIf="tooted.length === 0; else cartNotEmpty">
+    <div>Ostukorv on tyhi</div>
+</ng-container>
+<ng-template #cartNotEmpty>
+    <div> Ostukorvis olevate toodete arv: {{ tooted.length }} tk</div>
+    <button (click)="tyhjenda()">Tyhjenda</button>
+    <div>
+        @for ( toode of tooted; track toode; let i = $index) {
+            <div> {{ toode.nimi }} - {{ toode.hind }} €</div>
+            <button (click)="kustuta(i)">x</button>
+            <button (click)="lisa(toode)">Lisa lõppu juurde</button>
+        }
+    </div>
+
+    <div> Summa: {{ kokku() }} €</div>
+
+    <select>
+        @for ( pm of pakiautomaadid; track pm;) {
+            <option> {{ pm.NAME }}</option>
+        }
+    </select>
+</ng-template>
+

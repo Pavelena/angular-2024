@@ -1,0 +1,14 @@
+<nav>
+  <ul>
+    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Tegelased</a></li>
+    <li><a routerLink="halda-tegelasi" routerLinkActive="active">Halda tegelasi</a></li>
+    <li><a routerLink="books" routerLinkActive="active">Raamatud</a></li>
+    <li><a routerLink="numbers" routerLinkActive="active">Numbrid</a></li>
+  </ul>
+
+  <ul class="right">
+    <li><a routerLink="favourites" routerLinkActive="active"> <img src="assets/imgs/heart.svg"></a></li>
+  </ul>
+</nav>
+
+<router-outlet />

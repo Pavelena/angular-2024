@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Reggae+One&display=swap');
+
+* { 
+    font-family: "Reggae One", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.dark-theme {
+    background-color: black;
+    color: white;
+}
+.dark-theme a { color: white;}
+.dark-theme .main-link {
+    color: white !important;
+    background-color: black !important;
+}
+.dark-theme .main-link:hover {
+    box-shadow: 0 8px 180px 0 white !important;
+}
+.dark-theme .rectangle {
+    background-color: lightpink !important;
+}

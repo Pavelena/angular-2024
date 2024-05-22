@@ -10,7 +10,6 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class SeadedComponent {
   inputiluger = "";
-  // seadedForm!: NgForm;
 
   vormiSisestamine(seadedForm: NgForm){
     console.log(seadedForm.value);

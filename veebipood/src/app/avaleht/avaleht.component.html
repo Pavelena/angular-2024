@@ -1,1 +1,22 @@
-<p>avaleht works!</p>
+<table class="table my-4">
+    <thead>
+        <tr>
+            <th>Pilt</th>
+            <th>Nimi</th>
+            <th>Hind</th>
+            <th>Aktiivsus</th>
+        </tr>
+    </thead>
+    <tbody>
+    @for (toode of tooted; track toode; let i = $index){
+        <tr>
+            <td><img style="width: 100px" src="{{toode.pilt}}" alt=""></td>
+            <td>{{toode.nimi}}</td>
+            <td>{{toode.hind}}</td>
+            <td>{{toode.aktiivne}}</td>
+            <td><button class="btn btn-primary" (click)="lisaOstukorvi(toode)">Lisa ostukorvi</button></td>
+            <td><a [routerLink]="[ '/toode', toode.nimi ]">Vt detailsemalt</a></td>
+        </tr>
+    }
+    </tbody>
+</table>

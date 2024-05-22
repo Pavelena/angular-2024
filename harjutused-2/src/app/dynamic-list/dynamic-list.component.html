@@ -1,0 +1,9 @@
+<p>Minu pikk sõna: {{ variable }}</p>
+
+<form #addWordForm ="ngForm" (submit)="addWord(addWordForm)">
+    <div class="flex">
+        <input type="text" name="word" ngModel>
+
+        <button type="submit">Lisa sõna</button>
+    </div>
+</form>

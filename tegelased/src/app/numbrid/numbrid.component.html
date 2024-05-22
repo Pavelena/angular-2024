@@ -1,0 +1,26 @@
+<h2>Numbrid:</h2>
+<ul>
+    @for ( number of numbers; track number; let i = $index) {
+        <li>{{ number }}</li>
+    }
+</ul>
+
+<h3>Sorteerimine</h3>
+<div class="flex">
+    <button class="btn btn-secondary" (click)="sortAsc()">Suuruse järgi kasvavalt</button>
+    <button class="btn btn-secondary" (click)="sortDesc()">Suuruse järgi kahanevalt</button>
+    <button class="btn btn-secondary" (click)="sortAZ()">Esimese numbri järgi</button>
+    <button class="btn btn-secondary" (click)="sortZA()">Esimese numbri järgi vastupidises järjekorras</button>
+</div>
+
+<h3>Filtreerimine</h3>
+<div class="flex">
+    <button class="btn btn-secondary" (click)="filterBgThan8()">Suuremad kui 8</button>
+    <button class="btn btn-secondary" (click)="filterSmThan10()">Väiksemad kui 10</button>
+    <button class="btn btn-secondary" (click)="filterEven()">Paarisarvud</button>
+    <button class="btn btn-secondary" (click)="filterOdd()">Paaritud arvud</button>
+    <button class="btn btn-secondary" (click)="filterStartsWith1()">Numbrid algavad 1ga</button>
+    <button class="btn btn-secondary" (click)="filterInclude3()">Numbrid sisaldavad 3-e</button>
+</div>
+
+<button class="btn" (click)="restore()">Taasta algseis</button>

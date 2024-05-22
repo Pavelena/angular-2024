@@ -1,0 +1,28 @@
+<app-loader *ngIf = "isLoading"/>
+
+<table class="table my-4">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Category</th>
+            <th>Image</th>
+            <th>Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+    @for (toode of tooted; track toode; let i = $index){
+        <tr>
+            <td>{{toode.id}}</td>
+            <td>{{toode.title}}</td>
+            <td>{{toode.price}}</td>
+            <td>{{toode.description}}</td>
+            <td>{{toode.category}}</td>
+            <td><img style="width: 100px" src="{{toode.image}}" alt=""></td>
+            <td>{{toode.rating.rate}}</td>
+        </tr>
+    }
+    </tbody>
+</table>

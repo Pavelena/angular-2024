@@ -1,0 +1,18 @@
+<form (submit)="filterbyType()">
+    <div class="flex">
+        <input type="text" name="m2rks6na" [(ngModel)]="keyword">
+        <button class="btn btn-secondary" type="submit">Filtreeri</button>
+    </div>
+    <span *ngIf="keyword!='' && submitted" (click)="restore()" class="keyword">{{keyword}} X</span>
+</form>
+
+  
+  <table>
+    
+    @for ( mr of marineRegions; track mr;) {
+      <tr>
+        <td> {{ mr.type }}</td>
+        <td>{{ mr.description }}</td>
+      </tr>
+    }
+</table>

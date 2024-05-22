@@ -1,0 +1,17 @@
+
+<router-outlet />
+
+<button class="btn" (click)="onClick()">Klikki siia</button>
+<button class="btn" (mouseenter)="onMouseenter()" (mouseleave)="onMouseleave()">Tule hiirega siia</button>
+
+<input type="text" (blur)="onBlur()"><br>
+<input type="text" (keypress)="onKeypress()">
+
+<div *ngIf="n2itaKollast" class="yellow"></div>
+<div *ngIf="n2itaPunast" class="red"></div>
+<div *ngIf="n2itaSinist" class="blue"></div>
+<div *ngIf="n2itaRohelist" class="green"></div>
+
+<p>Täna {{day}}. {{month}}</p>
+
+<p><button class="btn" (click)="liidaArv()">Liida arv juurde</button></p>

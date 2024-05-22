@@ -1,0 +1,180 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+body {
+    padding: 0;
+    margin: 0;
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+}
+
+ul li {
+    padding: 0.25rem 0;
+}
+table {
+    border-collapse: collapse;
+    margin-bottom: 2rem;
+}
+td, th {
+    padding: 0.5rem;
+    border-bottom: 1px solid gray;
+    text-align: left;
+}
+.table {
+    width: 100%;
+}
+form {
+    margin-bottom: 2rem;
+}
+.form-group {
+    margin-bottom: 0.5rem;
+}
+label {
+    display: block;
+    margin-bottom: .25rem;
+}
+.btn {
+    border-radius: 0.25rem;
+    border: none;
+    background-color: cornflowerblue;
+    padding: 0.5rem 1rem;
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.btn.btn-secondary {
+    border: 1px solid cornflowerblue;
+    background-color: transparent;
+    color: black;
+}
+
+input[type="text"],
+input[type="number"] {
+    font-size: 1rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid;
+}
+
+.alert {
+    border-radius: .25rem;
+    padding: 0.5rem;
+    margin-bottom: 2rem
+}
+.alert-success {
+    background-color: #d1e7dd;
+    border: 1px solid #a3cfbb;
+}
+
+nav {
+    background-color: lightpink;
+    margin-bottom: 1.5rem;
+    display: flex;
+}
+nav ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+nav ul.right {
+    margin-left: auto;
+}
+nav ul li {
+    padding: 0.75rem;
+}
+nav ul li a {
+    text-decoration: none;
+    color: #000;
+    font-size: 1rem;
+}
+nav ul li a:hover {
+    text-decoration: underline;
+}
+nav ul li a.active {
+    background-color: white;
+    padding: .25rem;
+    border-radius: .25rem;
+}
+nav ul li img {
+    vertical-align: middle;
+}
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+.container {
+    max-width: 1140px;
+    margin: auto;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+}
+
+.card-group {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -0.75rem;
+    margin-right: -0.75rem;
+}
+.col {
+    flex: 0 0 auto;
+    width: 25%;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+    margin-bottom: 1.5rem;
+    max-width: 100%;
+}
+.card {
+    border: 1px solid gray;
+    border-radius: 0.5rem;
+    position: relative;
+}
+.card-img {
+    height: 150px;
+    object-fit: cover;
+    display: block;
+    margin: 1rem auto 0;
+    max-width: 100%;
+}
+.card-body {
+    padding: 1rem;
+}
+.card-body .btn {
+    display: block;
+    text-align: center;
+}
+
+.image {
+    width: 150px;
+    margin-right: 1.5rem;
+}
+.image img {
+    max-width: 100%;
+}
+.heart {
+    position: absolute;
+    right: 0;
+    top: 0;
+    background: transparent url(assets/imgs/heart.svg) no-repeat 50% 50% / 1.25rem 1.25rem;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    cursor: pointer;
+}
+.heart.isFavourite {
+    background-image: url(assets/imgs/heart-fill.svg);
+}

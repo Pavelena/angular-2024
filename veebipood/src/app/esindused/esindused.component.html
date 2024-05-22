@@ -1,0 +1,24 @@
+<button class="btn" [class]="aktiivneLinn==='tallinn' ? 'btn-primary' : 'btn-secondary'" (click)="muudaLinn('tallinn')">Tallinn ({{ esindused["tallinn"].length}})</button>
+<button class="btn" [class]="aktiivneLinn==='tartu' ? 'btn-primary' : 'btn-secondary'" (click)="muudaLinn('tartu')">Tartu ({{ esindused["tartu"].length}})</button>
+<button class="btn" [class]="aktiivneLinn==='narva' ? 'btn-primary' : 'btn-secondary'" (click)="muudaLinn('narva')">Narva ({{ esindused["narva"].length}})</button>
+<button class="btn" [class]="aktiivneLinn==='parnu' ? 'btn-primary' : 'btn-secondary'" (click)="muudaLinn('parnu')">P2rnu ({{ esindused["parnu"].length}})</button>
+
+<br><br>
+<button (click)="sorteeriAZ()">Sorteeri A-Z</button>
+<button (click)="sorteeriZA()">Sorteeri Z-A</button>
+<button (click)="sorteeriTahedKasv()">Sorteeri t2htede arv kasvavalt</button>
+<button (click)="sorteeriTahedKah()">Sorteeri t2htede arv kahanevalt</button>
+<button (click)="sorteeriKolmasTahtAZ()">Sorteeri kolmas t2ht A-Z</button>
+
+<button (click)="filterEndsWithE()">J2ta alles e-ga l6ppevad</button>
+<button (click)="filterKellelOn9tathe()">J2ta alles 9 t2hte sisaldavad </button>
+<button (click)="filterKellelOnVah7Tahte()">J2ta alles v2hemalt 7 t2hte sisaldavad</button>
+<button (click)="filterKesSisaldabIsLyhendit()">J2ta alles kes sisaldavad 'is' lyhendit</button>
+<button (click)="filterKellelOnKolmasTahtI()">J2ta alles kellel on 3s t2ht 'i'</button>
+
+@for ( esindus of esindused[aktiivneLinn]; track esindus; let i = $index) {
+    <div>{{esindus}}</div>
+    <a [routerLink]="[ '/esindus', aktiivneLinn, i ]">Vt lähemalt</a>
+}
+
+<p>Koikide esinduste t2hed kokku: {{tahedKokku()}}</p>
