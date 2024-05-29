@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 import { Product } from '../models/product';
 
 @Injectable({
@@ -9,7 +10,7 @@ export class TarnijaService {
 
   constructor(private http: HttpClient) { }
 
-  saaTooted() {
+  saaTooted(): Observable<Product[]> {
     return this.http.get<Product[]>("https://fakestoreapi.com/products");
   }
 }

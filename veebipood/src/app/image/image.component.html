@@ -1,0 +1,39 @@
+<h1>Piltide lisamine/kustutamine</h1>
+<div class="row mb-4">
+    <div class="col-4">
+        <form #tooteVorm="ngForm" (submit)="lisa(tooteVorm)">
+            <div class="form-group mb-3">
+                <label class="form-label">Pildi url</label>
+                <input ngModel name="url" type="text" class="form-control">
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Pildi alt tekst</label>
+                <input ngModel name="alt" type="text" class="form-control">
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Pildi header</label>
+                <input ngModel name="header" type="text" class="form-control">
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Pildi tekst</label>
+                <input ngModel name="text" type="text" class="form-control">
+            </div>
+
+            <button type="submit"class="btn btn-info">Sisesta</button><br>
+        </form>
+    </div>
+</div>
+
+<table class="table w-auto">
+    <tbody>
+    @for ( pilt of pildid; track pilt; let i = $index) {
+        <tr>
+            <td><img src="{{pilt.url}}" alt="" style="width: 200px;"></td>
+            <td>{{pilt.alt}}</td>
+            <td>{{pilt.header}}</td>
+            <td>{{pilt.text}}</td>
+            <td><button (click)="kustuta(i)" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button></td>
+        </tr>
+    }
+    </tbody>
+</table>

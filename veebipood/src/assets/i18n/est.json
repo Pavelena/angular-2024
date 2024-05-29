@@ -1,0 +1,24 @@
+{
+	"nav": {
+		"homepage": "Avalehele",
+		"giftcards": "Kinkekaardid",
+		"cart": "Ostukorv",
+        "maintain-products": "Halda tooted",
+        "esindused": "Esindused",
+        "supplier": "Tarnija",
+        "category": "Kategoooria",
+        "shops": "Halda poode",
+        "pictures": "Halda pilte",
+        "map": "Kaart poodidest"
+	},
+	"form": {
+		"product-name": "Toote nimi",
+		"product-price": "Toote hind"
+	},
+	"sort": {
+		"a-z": "Sorteeri a-z",
+        "z-a": " Sorteeri z-a",
+        "letters-asc": "Sorteeri t2hed kasvavalt",
+        "letters-desc": "Sorteeri t2hed kahanevalt"
+	}
+}

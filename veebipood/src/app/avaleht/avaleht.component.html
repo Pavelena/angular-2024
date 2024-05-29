@@ -1,22 +1,26 @@
-<table class="table my-4">
-    <thead>
-        <tr>
-            <th>Pilt</th>
-            <th>Nimi</th>
-            <th>Hind</th>
-            <th>Aktiivsus</th>
-        </tr>
-    </thead>
-    <tbody>
-    @for (toode of tooted; track toode; let i = $index){
-        <tr>
-            <td><img style="width: 100px" src="{{toode.pilt}}" alt=""></td>
-            <td>{{toode.nimi}}</td>
-            <td>{{toode.hind}}</td>
-            <td>{{toode.aktiivne}}</td>
-            <td><button class="btn btn-primary" (click)="lisaOstukorvi(toode)">Lisa ostukorvi</button></td>
-            <td><a [routerLink]="[ '/toode', toode.nimi ]">Vt detailsemalt</a></td>
-        </tr>
-    }
-    </tbody>
-</table>
+
+<div class="container">
+
+    <app-carousel />
+    
+    <div class="row row-cols-4 g-4">
+        @for (toode of tooted; track toode; let i = $index){
+            <div class="col">
+                <div class="card h-100">
+                    <img src="{{toode.pilt}}" class="card-img-top" alt="">
+                    <div class="card-body">
+                        <h5 class="card-title"> {{toode.nimi}}</h5>
+                        <p class="card-text text-muted">{{toode.kategooria}}</p>
+                        <p class="card-text">Hind: {{toode.hind}} €</p>
+                        <p>Laos: {{toode.aktiivne}}</p>
+                        <p><a [routerLink]="[ '/toode', toode.nimi ]">Vaata lähemalt</a></p>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-info w-100" (click)="lisaOstukorvi(toode)">Lisa ostukorvi</button>
+                        
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

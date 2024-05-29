@@ -1,39 +1,50 @@
 <!-- header-->
-<header class="navbar mb-4" [class]="darkMode? 'bg-dark':'bg-light'" [attr.data-bs-theme]=" darkMode ? 'dark':'light' ">
+
+<header class="navbar mb-4" [class]="darkMode? 'bg-dark':'bg-info'" [attr.data-bs-theme]=" darkMode ? 'dark':'light' ">
   <nav class="container">
     <ul class="navbar-nav flex-row">
       <li class="nav-item">
-        <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="" class="nav-link">Avaleht</a>
+        <a routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" routerLink="" class="nav-link">{{'nav.homepage' | translate}}</a>
       </li>
       <li class="nav-item">
-        <a routerLinkActive="active" routerLink="/kinkekaart" class="nav-link">Kinkekaardid</a>
+        <a routerLinkActive="active" routerLink="/kinkekaart" class="nav-link">{{'nav.giftcards' | translate}}</a>
       </li>
-      <li class="nav-item">
+      <!-- <li class="nav-item">
         <a routerLinkActive="active" routerLink="/lisa-toode" class="nav-link">Lisa toode</a>
-      </li>
-      <li class="nav-item">
-        <a routerLinkActive="active" routerLink="/ostukorv" class="nav-link">Ostukorv</a>
-      </li>
-      <li class="nav-item">
+      </li> -->
+      <!-- <li class="nav-item">
         <a routerLinkActive="active" routerLink="/seaded" class="nav-link">Seaded</a>
+      </li> -->
+      <li class="nav-item">
+        <a routerLinkActive="active" routerLink="/halda" class="nav-link">{{'nav.maintain-products' | translate}}</a>
       </li>
       <li class="nav-item">
-        <a routerLinkActive="active" routerLink="/halda" class="nav-link">Halda</a>
+        <a routerLinkActive="active" routerLink="/esindused" class="nav-link">{{'nav.esindused' | translate}}</a>
       </li>
       <li class="nav-item">
-        <a routerLinkActive="active" routerLink="/esindused" class="nav-link">Esindused</a>
+        <a routerLinkActive="active" routerLink="/tarnija" class="nav-link">{{'nav.supplier' | translate}}</a>
       </li>
       <li class="nav-item">
-        <a routerLinkActive="active" routerLink="/tarnija" class="nav-link">Tarnija</a>
+        <a routerLinkActive="active" routerLink="/kategooria" class="nav-link">{{'nav.category' | translate}}</a>
+      </li>
+      <li class="nav-item">
+        <a routerLinkActive="active" routerLink="/poed" class="nav-link">{{'nav.shops' | translate}}</a>
+      </li>
+      <li class="nav-item">
+        <a routerLinkActive="active" routerLink="/pildid" class="nav-link">{{'nav.pictures' | translate}}</a>
+      </li>
+      <li class="nav-item">
+        <a routerLinkActive="active" routerLink="/map" class="nav-link">{{'nav.map' | translate}}</a>
       </li>
     </ul>
     <ul class="navbar-nav flex-row ms-auto">
+      <li class="nav-item"><a class="nav-link" routerLink="/ostukorv" routerLinkActive="active"><i class="bi bi-cart"></i></a></li>
       <li class="nav-item"><a class="nav-link" [class.active]="keel === 'est'" (click)="muudaKeel('est')">EST</a></li>
       <li class="nav-item"><a class="nav-link" [class.active]="keel === 'eng'"(click)="muudaKeel('eng')">ENG</a></li>
       <li class="nav-item"><a class="nav-link" [class.active]="keel === 'rus'" (click)="muudaKeel('rus')">RUS</a></li>
-      <li><button (click)="muudaMode()" *ngIf="!darkMode">Dark</button></li>
-      <li><button (click)="muudaMode()"*ngIf="darkMode">Light</button></li>
+      <button (click)="muudaMode()" class="btn btn-link" [class]="darkMode? 'text-white':'text-black'"><i class="bi" [class]="darkMode? 'bi-sun':'bi-sun-fill'"></i></button>
     </ul>
+    
   </nav>
 </header>
 

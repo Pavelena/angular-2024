@@ -40,7 +40,7 @@
                 <td>{{tegelane.first}}</td>
                 <td>{{tegelane.last}}</td>
                 <td>{{tegelane.home}}</td>
-                <td><button (click)="kustuta(i)" class="btn">x</button></td>
+                <td><button (click)="delete(i)" class="btn">x</button></td>
                 <td><button [routerLink]="[ '/muuda-tegelane', tegelane.first ]" class="btn">Muuda</button></td>
             </tr>
         }

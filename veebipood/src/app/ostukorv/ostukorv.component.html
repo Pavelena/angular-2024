@@ -1,24 +1,45 @@
+<h1>Ostukorv</h1>
 
 <ng-container *ngIf="tooted.length === 0; else cartNotEmpty">
-    <div>Ostukorv on tyhi</div>
+    <p>Ostukorv on tühi</p>
 </ng-container>
 <ng-template #cartNotEmpty>
-    <div> Ostukorvis olevate toodete arv: {{ tooted.length }} tk</div>
-    <button (click)="tyhjenda()">Tyhjenda</button>
-    <div>
-        @for ( toode of tooted; track toode; let i = $index) {
-            <div> {{ toode.nimi }} - {{ toode.hind }} €</div>
-            <button (click)="kustuta(i)">x</button>
-            <button (click)="lisa(toode)">Lisa lõppu juurde</button>
-        }
+    <p> Ostukorvis olevate toodete arv: {{ tooted.length }} tk</p>
+    <button (click)="tyhjenda()" class="btn btn-info">Tühjenda</button>
+    <table class="table my-4 w-auto">
+        <tbody>
+            @for ( t of tooted; track t; let i = $index) {
+                <tr>
+                    <td><img src="{{ t.toode.pilt }}" alt="" style="width: 50px;"></td>
+                    <td>{{ t.toode.nimi }}</td>
+                    <td>{{ t.toode.hind }} €</td>
+                    <td>
+                        <button class="btn btn-sm btn-info" (click)="vahendaKogus(i)"><i class="bi bi-dash"></i></button> 
+                        {{ t.kogus}} tk 
+                        <button class="btn btn-sm btn-info" (click)="suurendaKogus(i)"><i class="bi bi-plus"></i></button>
+                    </td>
+                    <td>{{ t.toode.hind * t.kogus}} €</td>
+                    <td><button (click)="kustuta(i)" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button></td>
+                    <!-- <td><button (click)="lisa(t)" class="btn btn-secondary btn-sm">Lisa lõppu juurde</button></td> -->
+                </tr>
+            }
+        </tbody>
+        <tr>
+            <td colspan="5" class=" py-3">Summa: {{ kokku() }} €</td>
+        </tr>
+    </table>
+    
+
+    <h2>Tarnimine</h2>
+    <div class="row mb-4">
+        <div class="col-2">
+            <select class="form-select">
+                @for ( pm of pakiautomaadid; track pm;) {
+                    <option> {{ pm.NAME }}</option>
+                }
+            </select>
+        </div>
     </div>
-
-    <div> Summa: {{ kokku() }} €</div>
-
-    <select>
-        @for ( pm of pakiautomaadid; track pm;) {
-            <option> {{ pm.NAME }}</option>
-        }
-    </select>
+    
 </ng-template>
 

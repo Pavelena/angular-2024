@@ -12,6 +12,7 @@ import { CharactersService } from '../services/characters.service';
 })
 export class YksTegelaneComponent implements OnInit {
   tegelane!: characterType;
+  isLoading = true;
 
   constructor(
     private route: ActivatedRoute,
@@ -23,9 +24,13 @@ export class YksTegelaneComponent implements OnInit {
     if (tegelaseUrl === null){
       return;
     }
-    const character = this.charactersService.characterArray.find(t => t.first === tegelaseUrl);
-    if (character !== undefined){
-      this.tegelane = character;
-    }
+
+    this.charactersService.dbRequest().subscribe(vastus => {
+      const character = vastus.find(t => t.first === tegelaseUrl);
+      if (character !== undefined){
+        this.tegelane = character;
+      }
+      this.isLoading = false;
+    });
   }
 }

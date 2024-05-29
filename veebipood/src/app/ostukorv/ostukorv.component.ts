@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { OstukorviToode } from '../models/ostukorvi-toode';
 import { Pakiautomaat } from '../models/pakiautomaat';
 import { Toode } from '../models/toode';
 import { OstukorvService } from '../services/ostukorv.service';
@@ -29,17 +30,30 @@ export class OstukorvComponent {
   this.tooted = [];
   this.ostukorvService.uuendaOstukorv(this.tooted);
  }
+
+ vahendaKogus(index: number) {
+  this.tooted[index].kogus--;
+  if (this.tooted[index].kogus === 0) {
+    this.tooted.splice(index,1);
+  }
+  this.ostukorvService.uuendaOstukorv(this.tooted);
+ }
+ suurendaKogus(index: number) {
+  this.tooted[index].kogus++;
+  this.ostukorvService.uuendaOstukorv(this.tooted);
+ }
+
  kustuta(index: number){
   this.tooted.splice(index,1);
   this.ostukorvService.uuendaOstukorv(this.tooted);
  }
- lisa(toode: Toode){
-  this.tooted.push(toode);
-  this.ostukorvService.uuendaOstukorv(this.tooted);
- }
+//  lisa(toode: OstukorviToode){
+//   this.tooted.push(toode);
+//   this.ostukorvService.uuendaOstukorv(this.tooted);
+//  }
  kokku() {
   let sum = 0;
-  this.tooted.forEach(t => sum +=t.hind);
-  return sum;
+  this.tooted.forEach(t => sum += t.kogus * t.toode.hind);
+  return sum.toFixed(2);
  }
 }

@@ -6,25 +6,38 @@
                 <input ngModel name="pilt" type="text" class="form-control"  required>
             </div>
             <div class="form-group mb-3">
+                <label class="form-label">{{'form.product-name' | translate}}</label>
+                <input ngModel name="nimi" type="text" class="form-control" required>
+            </div>
+            <!-- <div class="form-group mb-3">
                 <label class="form-label">Nimi</label>
                 <input ngModel name="nimi" [type]="showName? 'text':'password'" class="form-control" required>
                 <button type="button" (click)="changeShowName()">{{ showName ? "Varja":"N2ita" }}</button>
+            </div> -->
+            <div class="form-group mb-3">
+                <label class="form-label">{{'form.product-price' | translate}}</label>
+                <input ngModel name="hind" type="number" class="form-control" required>
             </div>
             <div class="form-group mb-3">
-                <label class="form-label">Hind</label>
-                <input ngModel name="hind" type="number" class="form-control" required>
+                <label class="form-label">Kategooria</label>
+                <select name="kategooria" ngModel class="form-select">
+                    <option value="">Vali</option>
+                    @for (kategooria of kategooriad; track kategooria; let i = $index){
+                        <option [value]="kategooria.nimi">{{kategooria.nimi}}</option>
+                    }
+                </select>
             </div>
             <div class="form-check mb-3">
                 <input ngModel name="aktiivne" type="checkbox" class="form-check-input">
                 <label class="form-check-label" for="aktiivne">Aktiivsus</label>
             </div>
 
-            <button [disabled]="isNimiInvalid(tooteVorm) || tooteVorm.invalid" type="submit"class="btn btn-primary">Sisesta</button><br>
+            <button  type="submit"class="btn btn-info">Sisesta</button><br>
         </form>
     </div>
 </div>
 
-<p *ngIf="isNimiInvalid(tooteVorm)">Ilma C m2rgita ei saa lisada</p>
+<!-- <p *ngIf="isNimiInvalid(tooteVorm)">Ilma C m2rgita ei saa lisada</p> -->
 
 
 <table class="table my-4">
@@ -32,21 +45,25 @@
         <tr>
             <th>Pilt</th>
             <th>Nimi</th>
+            <th>Kategooria</th>
             <th>Hind</th>
             <th>Aktiivsus</th>
-            <th>Tegevused</th>
+            <th colspan="2">Tegevused</th>
         </tr>
     </thead>
     <tbody>
     @for (toode of tooted; track toode; let i = $index){
         <tr>
-            <td><img style="width: 100px" src="{{toode.pilt}}" alt=""></td>
+            <td><img style="width: 50px" src="{{toode.pilt}}" alt=""></td>
             <td>{{toode.nimi}}</td>
+            <td>{{toode.kategooria}}</td>
             <td>{{toode.hind}}</td>
             <td>{{toode.aktiivne}}</td>
             <td>
-                <button (click)="kustuta(i)" class="btn btn-secondary">x</button>
-                <button [routerLink]="[ '/muuda-toode', toode.nimi ]">Muuda</button>
+                <button (click)="kustuta(i)" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+            </td>
+            <td>
+                <button [routerLink]="[ '/muuda-toode', toode.nimi ]" class="btn btn-info">Muuda</button>
             </td>
         </tr>
     }

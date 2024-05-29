@@ -10,13 +10,15 @@ import { FavouritesService } from '../services/favourites.service';
   styleUrl: './favourites.component.css'
 })
 export class FavouritesComponent {
-  favourites = this.favouritesService.favourites;
+  favourites = this.favouritesService.getFromStorage();
 
   tyhjenda() {
     this.favourites = [];
+    this.favouritesService.refreshStorage(this.favourites);
   }
   kustuta(index: number) {
     this.favourites.splice(index, 1);
+    this.favouritesService.refreshStorage(this.favourites);
   }
 
  constructor(

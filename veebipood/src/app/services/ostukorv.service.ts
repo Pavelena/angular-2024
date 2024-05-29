@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { OstukorviToode } from '../models/ostukorvi-toode';
 import { Toode } from '../models/toode';
 
 @Injectable({
@@ -9,15 +10,21 @@ export class OstukorvService {
 
   constructor() { }
 
-  saaOstukorv(): Toode[] {
+  saaOstukorv(): OstukorviToode[] {
     return JSON.parse(localStorage.getItem("ostukorv") || "[]");
   }
-  lisaOstukorvi(toode: Toode){
-    const ostukorvLS = JSON.parse(localStorage.getItem("ostukorv") || "[]");
-    ostukorvLS.push(toode);
+  lisaOstukorvi(lisatavToode: Toode){
+    const ostukorvLS: OstukorviToode[] = JSON.parse(localStorage.getItem("ostukorv") || "[]");
+    const index = ostukorvLS.findIndex(t => t.toode.nimi === lisatavToode.nimi);
+
+    if (index >= 0) {
+      ostukorvLS[index].kogus++;
+    } else {
+      ostukorvLS.push({kogus: 1, toode: lisatavToode});
+    }
     localStorage.setItem("ostukorv", JSON.stringify(ostukorvLS));
   }
-  uuendaOstukorv(tooted: Toode[]){
+  uuendaOstukorv(tooted: OstukorviToode[]){
     localStorage.setItem("ostukorv", JSON.stringify(tooted));
   }
 }

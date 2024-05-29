@@ -1,0 +1,24 @@
+<h1>Kategooriate lisamine/kustutamine</h1>
+<div class="row mb-4">
+    <div class="col-4">
+        <form #tooteVorm="ngForm" (submit)="lisa(tooteVorm)" class="d-flex align-items-end gap-3">
+            <div class="form-group">
+                <label class="form-label">Kategooria</label>
+                <input ngModel name="nimi" type="text" class="form-control">
+            </div>
+
+            <button type="submit"class="btn btn-info">Sisesta</button><br>
+        </form>
+    </div>
+</div>
+
+<table class="table w-auto">
+    <tbody>
+    @for ( kategooria of kategooriad; track kategooria; let i = $index) {
+        <tr>
+            <td>{{kategooria.nimi}}</td>
+            <td><button (click)="kustuta(i)" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button></td>
+        </tr>
+    }
+    </tbody>
+</table>

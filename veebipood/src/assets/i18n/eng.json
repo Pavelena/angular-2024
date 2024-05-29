@@ -1,0 +1,24 @@
+{
+	"nav": {
+		"homepage": "Homepage",
+		"giftcards": "Gift cards",
+		"cart": "Cart",
+        "maintain-products": "Maintain products",
+        "esindused": "Esindused eng",
+        "supplier": "Supplier",
+        "category": "Category",
+        "shops": "Maintain shops",
+        "pictures": "Maintain pictures",
+        "map": "Map"
+	},
+	"form": {
+		"product-name": "Product name",
+		"product-price": "Product price"
+	},
+	"sort": {
+		"a-z": "Sort a-z",
+        "z-a": " Sort z-a",
+        "letters-asc": "Sort letters ascending",
+        "letters-desc": "Sort letters descending"
+	}
+}

@@ -4,10 +4,10 @@
 <button class="btn" [class]="aktiivneLinn==='parnu' ? 'btn-primary' : 'btn-secondary'" (click)="muudaLinn('parnu')">P2rnu ({{ esindused["parnu"].length}})</button>
 
 <br><br>
-<button (click)="sorteeriAZ()">Sorteeri A-Z</button>
-<button (click)="sorteeriZA()">Sorteeri Z-A</button>
-<button (click)="sorteeriTahedKasv()">Sorteeri t2htede arv kasvavalt</button>
-<button (click)="sorteeriTahedKah()">Sorteeri t2htede arv kahanevalt</button>
+<button (click)="sorteeriAZ()">{{'sort.a-z' | translate}}</button>
+<button (click)="sorteeriZA()">{{'sort.z-a' | translate}}</button>
+<button (click)="sorteeriTahedKasv()">{{'sort.letters-asc' | translate}}</button>
+<button (click)="sorteeriTahedKah()">{{'sort.letters-desc' | translate}}</button>
 <button (click)="sorteeriKolmasTahtAZ()">Sorteeri kolmas t2ht A-Z</button>
 
 <button (click)="filterEndsWithE()">J2ta alles e-ga l6ppevad</button>

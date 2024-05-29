@@ -1,5 +1,13 @@
 
-<div><img style="width: 100px" src="{{toode.pilt}}" alt=""></div>
-<div>{{toode.nimi}}</div>
-<div>{{toode.hind}}</div>
-<div *ngIf="!toode.aktiivne">Toode pole aktiivne</div>
+<div class="border p-4 rounded">
+    <div *ngIf="toode !==undefined" class="d-flex">
+        <div><img style="width: 100px" src="{{toode.pilt}}" alt=""></div>
+        <div>
+            <h4>{{toode.nimi}}</h4>
+            <p>Hind: {{toode.hind}} €</p>
+            <p *ngIf="!toode.aktiivne">Toode pole aktiivne</p>
+        </div>
+        
+    </div>
+    <app-loader *ngIf = "isLoading"/>
+</div>

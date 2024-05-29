@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { setThrowInvalidWriteToSignalError } from '@angular/core/primitives/signals';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { EsindusService } from '../services/esindus.service';
 
 @Component({
   selector: 'app-esindused',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, TranslateModule],
   templateUrl: './esindused.component.html',
   styleUrl: './esindused.component.css'
 })

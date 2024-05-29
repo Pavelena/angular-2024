@@ -1,0 +1,39 @@
+<h1>Poed</h1>
+<div class="row mb-4">
+    <div class="col-4">
+        <form #tooteVorm="ngForm" (submit)="lisa(tooteVorm)">
+            <div class="form-group mb-3">
+                <label class="form-label">Poe nimi</label>
+                <input ngModel name="name" type="text" class="form-control">
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Poe latitude</label>
+                <input ngModel name="latitude" type="number" class="form-control">
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Poe longitude</label>
+                <input ngModel name="longitude" type="number" class="form-control">
+            </div>
+            <div class="form-group mb-3">
+                <label class="form-label">Poe avamisajad</label>
+                <input ngModel name="openTime" type="text" class="form-control">
+            </div>
+
+            <button type="submit"class="btn btn-info">Sisesta</button><br>
+        </form>
+    </div>
+</div>
+
+<table class="table w-auto">
+    <tbody>
+    @for ( pood of poed; track pood; let i = $index) {
+        <tr>
+            <td>{{pood.name}}</td>
+            <td>{{pood.latitude}}</td>
+            <td>{{pood.longitude}}</td>
+            <td>{{pood.openTime}}</td>
+            <td><button (click)="kustuta(i)" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button></td>
+        </tr>
+    }
+    </tbody>
+</table>

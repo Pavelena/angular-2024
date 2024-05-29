@@ -15,9 +15,10 @@ export class MuudaTegelaneComponent implements OnInit {
   tegelane!: characterType;
   index!: number;
   changeCharacterForm!: FormGroup;
+  private tegelased: characterType[] = [];
 
   constructor(
-    private characterService: CharactersService,
+    private charactersService: CharactersService,
     private route: ActivatedRoute, // url-st info k2ttesaamiseks
     private router: Router //ymbersuunamiseks
   ){}
@@ -27,20 +28,25 @@ export class MuudaTegelaneComponent implements OnInit {
     if (tegelaseUrl === null){
       return;
     }
-    const character = this.characterService.characterArray.find(c => c.first === tegelaseUrl);
-    if (character !== undefined){
-      this.tegelane = character;
-      this.index = this.characterService.characterArray.indexOf(character);
-      this.changeCharacterForm = new FormGroup({
-        "first": new FormControl(character.first),
-        "last": new FormControl(character.last),
-        "home": new FormControl(character.home),
-        "image": new FormControl(character.image)
-      });
-    }
+    this.charactersService.dbRequest().subscribe(vastus => {
+      this.tegelased = vastus;
+      const character = vastus.find(c => c.first === tegelaseUrl);
+      if (character !== undefined){
+        this.tegelane = character;
+        this.index = vastus.indexOf(character);
+
+        this.changeCharacterForm = new FormGroup({
+          "first": new FormControl(character.first),
+          "last": new FormControl(character.last),
+          "home": new FormControl(character.home),
+          "image": new FormControl(character.image)
+        });
+      }
+    });
+    
   }
   changeCharacter(){
-    this.characterService.characterArray[this.index] = this.changeCharacterForm.value;
-    this.router.navigateByUrl('/halda-tegelasi');
+    this.tegelased[this.index] = this.changeCharacterForm.value;
+    this.charactersService.dbRefresh(this.tegelased).subscribe(()=> this.router.navigateByUrl('/halda-tegelasi'));
   }
 }
