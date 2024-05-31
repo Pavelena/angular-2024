@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 import { AvalehtComponent } from './avaleht/avaleht.component';
+import { ContactUsComponent } from './contact-us/contact-us.component';
 import { EsindusedComponent } from './esindused/esindused.component';
 import { HaldaTooteidComponent } from './halda-tooteid/halda-tooteid.component';
 import { ImageComponent } from './image/image.component';
@@ -29,6 +30,7 @@ export const routes: Routes = [
     {path: "poed", component: ShopComponent},
     {path: "pildid", component: ImageComponent},
     {path: "map", component: MapComponent},
+    {path: "contact-us", component: ContactUsComponent},
     {path: "toode/:nimi", component: YksToodeComponent},
     {path: "muuda-toode/:nimi", component: MuudaToodeComponent},
     {path: "esindus/:linn/:index", component: YksEsindusComponent},

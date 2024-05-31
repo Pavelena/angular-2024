@@ -1,12 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { characterType } from '../models/characterType';
 import { CharactersService } from '../services/characters.service';
 
 @Component({
   selector: 'app-yks-tegelane',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, TranslateModule],
   templateUrl: './yks-tegelane.component.html',
   styleUrl: './yks-tegelane.component.css'
 })

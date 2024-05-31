@@ -1,13 +1,15 @@
 <nav>
   <ul>
-    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Tegelased</a></li>
-    <li><a routerLink="halda-tegelasi" routerLinkActive="active">Halda tegelasi</a></li>
-    <li><a routerLink="books" routerLinkActive="active">Raamatud</a></li>
-    <li><a routerLink="numbers" routerLinkActive="active">Numbrid</a></li>
+    <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">{{'nav.characters' | translate}}</a></li>
+    <li><a routerLink="halda-tegelasi" routerLinkActive="active">{{'nav.maintain-characters' | translate}}</a></li>
+    <li><a routerLink="books" routerLinkActive="active">{{'nav.books' | translate}}</a></li>
+    <li><a routerLink="numbers" routerLinkActive="active">{{'nav.numbers' | translate}}</a></li>
   </ul>
 
   <ul class="right">
-    <li><a routerLink="favourites" routerLinkActive="active"> <img src="assets/imgs/heart.svg"></a></li>
+    <li><a [class.active]="lang === 'et'" (click)="changeLang('et')">EST</a></li>
+    <li><a [class.active]="lang === 'en'" (click)="changeLang('en')">ENG</a></li>
+    <li><a routerLink="favourites" routerLinkActive="active">{{'nav.favourites' | translate}} <img src="assets/imgs/heart.svg"></a></li>
   </ul>
 </nav>
 

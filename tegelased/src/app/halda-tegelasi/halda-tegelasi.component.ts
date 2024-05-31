@@ -2,13 +2,14 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { characterType } from '../models/characterType';
 import { CharactersService } from '../services/characters.service';
 
 @Component({
   selector: 'app-halda-tegelasi',
   standalone: true,
-  imports: [FormsModule, CommonModule, RouterLink],
+  imports: [FormsModule, CommonModule, RouterLink, TranslateModule],
   templateUrl: './halda-tegelasi.component.html',
   styleUrl: './halda-tegelasi.component.css'
 })

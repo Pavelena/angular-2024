@@ -12,7 +12,7 @@
                 <tr>
                     <td><img src="{{ t.toode.pilt }}" alt="" style="width: 50px;"></td>
                     <td>{{ t.toode.nimi }}</td>
-                    <td>{{ t.toode.hind }} €</td>
+                    <td>{{ t.toode.hind | price }}</td>
                     <td>
                         <button class="btn btn-sm btn-info" (click)="vahendaKogus(i)"><i class="bi bi-dash"></i></button> 
                         {{ t.kogus}} tk 
@@ -25,7 +25,10 @@
             }
         </tbody>
         <tr>
-            <td colspan="5" class=" py-3">Summa: {{ kokku() }} €</td>
+            <td colspan="5" class=" py-3">Summa: {{ kokku() }} </td>
+        </tr>
+        <tr>
+            <button (click)="maksa()">Maksa</button>
         </tr>
     </table>
     

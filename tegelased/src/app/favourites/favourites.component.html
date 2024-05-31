@@ -3,7 +3,7 @@
         <div>Sul ei ole ühtegi lemmikut </div>
     </ng-container>
     <ng-template #cartNotEmpty>
-        <h1>Lemmikud</h1>
+        <h1>{{'heading.favourites' | translate}}</h1>
         <p> Sul on {{ favourites.length }} lemmikut</p>
 
         <div class="card-group">
@@ -14,14 +14,14 @@
                   <div class="card-body">
                     <h2>{{ favourite.first }} {{ favourite.last }}</h2>
                     <p>{{ favourite.home }}</p>
-                    <div><button class="btn" (click)="kustuta(i)">Kustuta</button></div>
+                    <div><button class="btn" (click)="kustuta(i)">{{'btn.delete' | translate}}</button></div>
                   </div>
                 </div>
               </div>
             }
         </div>
 
-        <button class="btn" (click)="tyhjenda()">Tühjenda</button>
+        <button class="btn" (click)="tyhjenda()">{{'btn.empty' | translate}}</button>
     </ng-template>
 </div>
 

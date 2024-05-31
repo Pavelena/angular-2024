@@ -1,4 +1,17 @@
-<div id="carouselExampleCaptions" class="carousel slide mb-4">
+@if (pildid) {
+    <ngb-carousel class="mb-4">
+        @for ( pilt of pildid; track pilt; let i = $index) {
+            <ng-template ngbSlide class="carousel-inner">
+                <img src="{{pilt.url}}" class="d-block w-100" alt="{{pilt.alt}}">
+                <div class="carousel-caption d-none d-md-block">
+                <h5>{{pilt.header}}</h5>
+                <p>{{pilt.text}}</p>
+                </div>
+            </ng-template>
+        }
+	</ngb-carousel>
+
+<!-- <div id="carouselExampleCaptions" class="carousel slide mb-4">
     <div class="carousel-indicators">
       @for ( pilt of pildid; track pilt; let i = $index) {
         <button type="button" data-bs-target="#carouselExampleCaptions" [attr.data-bs-slide-to]="[i]" [class.active]="i === 0"></button>
@@ -23,4 +36,5 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
-  </div>
+  </div> -->
+}

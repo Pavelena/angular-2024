@@ -1,0 +1,27 @@
+{
+	"nav": {
+		"characters": "Tegelased",
+		"maintain-characters": "Halda tegelasi",
+		"numbers": "Numbrid",
+        "books": "Raamatud",
+        "favourites": "Lemmikud"
+	},
+	"btn": {
+		"read-more": "Loe lähemalt",
+		"back": "Tagasi",
+		"delete": "Kustuta",
+		"empty": "Tühjenda",
+		"add": "Lisa",
+		"change": "Muuda"
+	},
+	"heading": {
+		"characters": "Tegelased",
+        "new-character": " Uue tegelase lisamine",
+		"change-character": "Tegelase muutmine",
+        "picture": "Pilt",
+        "first-name": "Eesnimi",
+		"last-name": "Perenimi",
+		"home": "Elukoht",
+		"favourites": "Lemmikud"
+	}
+}

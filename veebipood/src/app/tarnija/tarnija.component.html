@@ -18,7 +18,7 @@
             <td>{{toode.id}}</td>
             <td>{{toode.title}}</td>
             <td>{{toode.price}}</td>
-            <td>{{toode.description}}</td>
+            <td>{{toode.description | shortener:100}}</td>
             <td>{{toode.category}}</td>
             <td><img style="width: 100px" src="{{toode.image}}" alt=""></td>
             <td>{{toode.rating.rate}}</td>

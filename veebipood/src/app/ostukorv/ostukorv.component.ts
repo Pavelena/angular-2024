@@ -3,13 +3,15 @@ import { Component } from '@angular/core';
 import { OstukorviToode } from '../models/ostukorvi-toode';
 import { Pakiautomaat } from '../models/pakiautomaat';
 import { Toode } from '../models/toode';
+import { PricePipe } from '../pipes/price.pipe';
 import { OstukorvService } from '../services/ostukorv.service';
 import { PakiautomaadidService } from '../services/pakiautomaadid.service';
+import { PaymentService } from '../services/payment.service';
 
 @Component({
   selector: 'app-ostukorv',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, PricePipe],
   templateUrl: './ostukorv.component.html',
   styleUrl: './ostukorv.component.css'
 })
@@ -19,7 +21,8 @@ export class OstukorvComponent {
 
   constructor (
     private ostukorvService: OstukorvService,
-    private pakiautomaadidService: PakiautomaadidService
+    private pakiautomaadidService: PakiautomaadidService,
+    private paymentService: PaymentService
   ){}
 
   ngOnInit() {
@@ -55,5 +58,11 @@ export class OstukorvComponent {
   let sum = 0;
   this.tooted.forEach(t => sum += t.kogus * t.toode.hind);
   return sum.toFixed(2);
+ }
+ maksa() {
+  this.paymentService.makse().subscribe(vastus => {
+    console.log(vastus);
+    window.location.href = vastus.payment_link;
+  })
  }
 }

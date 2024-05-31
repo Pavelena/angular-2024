@@ -1,5 +1,15 @@
 
 <div class="container">
+    <!-- <p>{{kuupaev | date }}</p>
+    <p>{{kuupaev | date: 'shortTime' }}</p>
+    <p>{{kuupaev | date: 'shortDate' }}</p>
+    <p>{{kuupaev | date: 'mediumTime' }}</p>
+    <p>{{kuupaev | date: 'mediumDate' }}</p>
+    <p>{{kuupaev | date: 'd.MM.yyyy H:mm' }}</p>
+
+    <p>{{ 0.5 | percent}}</p>
+    
+    <p>{{ tooted | json}}</p> -->
 
     <app-carousel />
     
@@ -9,9 +19,9 @@
                 <div class="card h-100">
                     <img src="{{toode.pilt}}" class="card-img-top" alt="">
                     <div class="card-body">
-                        <h5 class="card-title"> {{toode.nimi}}</h5>
+                        <h5 class="card-title"> {{toode.nimi | shortener:4}}</h5>
                         <p class="card-text text-muted">{{toode.kategooria}}</p>
-                        <p class="card-text">Hind: {{toode.hind}} €</p>
+                        <p class="card-text">Hind: {{toode.hind | price }}</p>
                         <p>Laos: {{toode.aktiivne}}</p>
                         <p><a [routerLink]="[ '/toode', toode.nimi ]">Vaata lähemalt</a></p>
                     </div>

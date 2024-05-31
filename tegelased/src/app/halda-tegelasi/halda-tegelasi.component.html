@@ -1,35 +1,35 @@
 <div class="container">
     <div class="alert alert-success" *ngIf="this.message!==''">{{ message }}</div>
 
-    <h1>Uue tegelase lisamine</h1>
+    <h1>{{'heading.new-character' | translate}}</h1>
     <form #characterAddform="ngForm" (submit)="add(characterAddform)">
         <div class="form-group">
-          <label for="first">Eesnimi</label>
+          <label for="first">{{'heading.first-name' | translate}}</label>
           <input type="text" id="first" name="first" ngModel>
         </div>
         <div class="form-group">
-          <label for="last">Perenimi</label>
+          <label for="last">{{'heading.last-name' | translate}}</label>
           <input type="text" id="last" name="last" ngModel>
         </div>
         <div class="form-group">
-          <label for="home">Elukoht</label>
+          <label for="home">{{'heading.home' | translate}}</label>
           <input type="text" id="home" name="home" ngModel>
         </div>
         <div class="form-group">
-          <label for="image">Pilt</label>
+          <label for="image">{{'heading.picture' | translate}}</label>
           <input type="text" id="image" name="image" ngModel>
         </div>
-        <button type="submit" class="btn">Lisa</button>
+        <button type="submit" class="btn">{{'btn.add' | translate}}</button>
     </form>
 
-    <h2>Tegelased</h2>
+    <h2>{{'heading.characters' | translate}}</h2>
     <table class="table">
         <thead>
             <tr>
-                <th>Pilt</th>
-                <th>Eesnimi</th>
-                <th>Perenimi</th>
-                <th>Elukoht</th>
+                <th>{{'heading.picture' | translate}}</th>
+                <th>{{'heading.first-name' | translate}}</th>
+                <th>{{'heading.last-name' | translate}}</th>
+                <th>{{'heading.home' | translate}}</th>
                 <th colspan="2"></th>
             </tr>
         </thead>
@@ -41,7 +41,7 @@
                 <td>{{tegelane.last}}</td>
                 <td>{{tegelane.home}}</td>
                 <td><button (click)="delete(i)" class="btn">x</button></td>
-                <td><button [routerLink]="[ '/muuda-tegelane', tegelane.first ]" class="btn">Muuda</button></td>
+                <td><button [routerLink]="[ '/muuda-tegelane', tegelane.first ]" class="btn">{{'btn.change' | translate}}</button></td>
             </tr>
         }
         </tbody>

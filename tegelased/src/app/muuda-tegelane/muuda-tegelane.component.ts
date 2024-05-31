@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 import { characterType } from '../models/characterType';
 import { CharactersService } from '../services/characters.service';
 
 @Component({
   selector: 'app-muuda-tegelane',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule],
+  imports: [ReactiveFormsModule, FormsModule, TranslateModule],
   templateUrl: './muuda-tegelane.component.html',
   styleUrl: './muuda-tegelane.component.css'
 })

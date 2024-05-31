@@ -1,6 +1,6 @@
   
 <div class="container">
-  <h1>Tegelased</h1>
+  <h1>{{'heading.characters' | translate}}</h1>
 
   <form>
     <div class="flex">
@@ -16,12 +16,12 @@
       @for ( tegelane of tegelased; track tegelane; let i = $index) {
         <div class="col">
           <div class="card">
-            <button class="heart" [class.isFavourite]="isFavourite" (click)="loveIt(tegelane)" ></button>
+            <button class="heart" [class.isFavourite] (click)="loveIt(tegelane)" ></button>
             <img src="{{ tegelane.image }}" class="card-img" alt="">
             <div class="card-body">
               <h2>{{ tegelane.first }} {{ tegelane.last }}</h2>
               <p>{{ tegelane.home }}</p>
-              <div><a class="btn" [routerLink]="[ '/tegelane', tegelane.first ]">Loe lähemalt</a></div>
+              <div><a class="btn" [routerLink]="[ '/tegelane', tegelane.first ]">{{'btn.read-more' | translate}}</a></div>
             </div>
           </div>
         </div>

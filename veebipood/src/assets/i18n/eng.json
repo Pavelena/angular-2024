@@ -9,7 +9,8 @@
         "category": "Category",
         "shops": "Maintain shops",
         "pictures": "Maintain pictures",
-        "map": "Map"
+        "map": "Map",
+		"contact-us": "Contact us"
 	},
 	"form": {
 		"product-name": "Product name",

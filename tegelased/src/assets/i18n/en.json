@@ -1,0 +1,27 @@
+{
+	"nav": {
+		"characters": "Characters",
+		"maintain-characters": "Maintain characters",
+		"numbers": "Numbers",
+        "books": "Books",
+        "favourites": "Favourites"
+	},
+	"btn": {
+		"read-more": "Read more",
+		"back": "Back",
+		"delete": "Delete",
+		"empty": "Empty",
+		"add": "Add",
+		"change": "Change"
+	},
+	"heading": {
+		"characters": "Characters",
+        "new-character": "New character adding",
+		"change-character": "Character changing",
+        "picture": "Picture",
+        "first-name": "First name",
+		"last-name": "Last name",
+		"home": "Home",
+		"favourites": "Favourites"
+	}
+}
