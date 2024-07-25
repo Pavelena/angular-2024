@@ -1,0 +1,126 @@
+<ng-container *ngIf="!isLoaded; else countryPage">
+    <app-loader />
+</ng-container>
+<ng-template #countryPage>
+    <h1 class="mb-4 d-flex gap-2 align-items-center"><img src="{{ country.flag }}" alt="" height="40"> {{ country.name }}</h1>
+
+    <div class="mb-3">
+        <a href="#" routerLink="/riigid" class="btn btn-info btn-sm icon-link">
+            <i class="bi bi-arrow-left" aria-hidden="true"></i>
+            Tagasi
+        </a>
+    </div>
+    <div class="row">
+        <div class="main col-9">
+            <table class="table table-secondary">
+                <thead>
+                    <tr>
+                        <th scope="col">
+                            <button class="btn btn-link icon-link p-0" (click)="sort('year')">
+                                Aasta 
+                                <i class="bi" 
+                                [class.bi-chevron-expand]="sortProperty!=='year'" 
+                                [class.bi-chevron-down]="sortProperty==='year'&&direction===1" 
+                                [class.bi-chevron-up]="sortProperty==='year'&&direction===-1" aria-hidden="true"></i>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-link icon-link p-0" (click)="sort('performer')">
+                                Esitaja 
+                                <i class="bi" 
+                                [class.bi-chevron-expand]="sortProperty!=='performer'" 
+                                [class.bi-chevron-down]="sortProperty==='performer'&&direction===1" 
+                                [class.bi-chevron-up]="sortProperty==='performer'&&direction===-1" aria-hidden="true"></i>
+                            </button>
+                        </th>
+                        <th scope="col">
+                            <button class="btn btn-link icon-link p-0" (click)="sort('song')">
+                                Laul 
+                                <i class="bi" 
+                                [class.bi-chevron-expand]="sortProperty!=='song'" 
+                                [class.bi-chevron-down]="sortProperty==='song'&&direction===1" 
+                                [class.bi-chevron-up]="sortProperty==='song'&&direction===-1" aria-hidden="true"></i>
+                            </button>
+                        </th>
+                        <th scope="col" class="text-end">
+                            <button class="btn btn-link icon-link p-0" (click)="sort('place')">
+                                Koht 
+                                <i class="bi" 
+                                [class.bi-chevron-expand]="sortProperty!=='place'" 
+                                [class.bi-chevron-down]="sortProperty==='place'&&direction===1" 
+                                [class.bi-chevron-up]="sortProperty==='place'&&direction===-1" aria-hidden="true"></i>
+                            </button>
+                        </th>
+                        <th scope="col" class="text-end">
+                            <button class="btn btn-link icon-link p-0" (click)="sort('points')">
+                                Punkte 
+                                <i class="bi" 
+                                [class.bi-chevron-expand]="sortProperty!=='points'" 
+                                [class.bi-chevron-down]="sortProperty==='points'&&direction===1" 
+                                [class.bi-chevron-up]="sortProperty==='points'&&direction===-1" aria-hidden="true"></i>
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @for ( p of participants | slice: (page-1) * pageSize : page * pageSize; track p;) {
+                        <tr [class.table-active]="p.semifinal > 0">
+                            <td>{{ p.year }}</td>
+                            <td>{{ p.performer }}</td>
+                            <td>{{ p.song }}</td>
+                            <td class="text-end">
+                                <span *ngIf="p.place < 4&&p.semifinal===0" class="badge" 
+                                [class.bg-success]="p.place===1&&p.semifinal===0" 
+                                [class.bg-warning]="p.place===2&&p.semifinal===0" 
+                                [class.bg-danger]="p.place===3&&p.semifinal===0">{{ p.place }}</span> 
+                                <span *ngIf="p.place > 3 || p.semifinal > 0">{{ p.place }}</span>
+                            </td>
+                            <td class="text-end"><span class="badge bg-primary">{{ p.points }}</span></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            <ngb-pagination *ngIf="isLoaded && participants.length > pageSize" [(page)]="page" [pageSize]="pageSize" [collectionSize]="participants.length" class="d-flex justify-content-center" />
+        </div>
+    
+
+        <aside class="sidebar col-3">
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                Osalusi
+                <span class="badge bg-primary">{{ country.participations }}</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                Esimene osalemine
+                <span class="badge bg-primary">{{ country.first_appearance }}</span>
+                </li>
+                <li class="list-group-item d-flex flex-wrap justify-content-between align-items-center">
+                Parim koht
+                <span class="badge bg-primary">{{ country.best_result.place }} ({{ country.best_result.years.join(', ') }})</span>
+                </li>
+                <li class="list-group-item d-flex flex-wrap justify-content-between align-items-center">
+                    Halvim koht
+                    <span class="badge bg-primary">{{ country.worst_result.place }} 
+                        ({{ country.worst_result.years.join(', ') }})</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    Kohtade keskmine
+                    <span class="badge bg-primary">{{ country.average_place }}</span>
+                </li>
+                <li class="list-group-item">
+                    Ringhääling(ud)
+                    <div [innerHtml]="country.member_stations | sanitizer"></div>
+                </li>
+                <li class="list-group-item">
+                    Rahvuslik eelvoor
+                    <div [innerHtml]="country.national_selection | sanitizer"></div>
+                </li>
+                <li class="list-group-item">
+                    Välislingid
+                    <div [innerHtml]="country.external_links | sanitizer"></div>
+                </li>
+            </ul>
+        </aside>
+    </div>
+</ng-template>

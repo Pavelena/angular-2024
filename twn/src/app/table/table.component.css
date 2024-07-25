@@ -1,0 +1,132 @@
+.table-wrapper {
+    display: block;
+    overflow: auto;
+    width: 100%;
+}
+.table {
+    border-collapse: collapse;
+    min-width: 100%;
+    font-size: 1rem;
+    table-layout: fixed;
+}
+.table th, 
+.table td {
+    padding: .625rem 1rem;
+    border-bottom: #fff .0625rem solid;
+}
+.table tr:nth-child(even) td {
+    background: rgba(255, 255, 255, .1);
+}
+.table th {
+    background: #333;
+    color: #fff;
+    text-align: left;
+    white-space: nowrap;
+}
+.table .clickable {
+    cursor: pointer;
+}
+.table .clickable.active td {
+    background: #fff !important;
+    color: #333 !important;
+}
+.table .clickable.active + tr td {
+    background: #fff !important;
+    color: #333 !important;
+}
+.table th button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 0;
+    font-size: 1rem;
+    font-weight: bold;
+}
+
+.table .tab {
+    display: flex;
+}
+.table .tab .image {
+    width: 12.5rem;
+    height: 12.5rem;
+    flex-shrink: 0;
+    flex-grow: 0;
+    margin: .375rem;
+    background-color: #f1f1f1;
+}
+.table .tab .image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+.table .tab .body {
+    padding-left: 1rem;
+}
+.twn-button__small {
+    display: inline-block;
+    margin: 20px 0 16px;
+    padding: .85em 1.7em;
+    transition: background-color .25s ease-out;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    background-color: #14cc76;
+    color: #3a3d57;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: none;
+    text-decoration: none;
+    border-bottom: .25rem solid #37945C;
+    text-transform: uppercase;
+    font-size: .75rem;
+}
+
+.pagination {
+    text-align: center;
+    margin-top: 20px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+.pagination button {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    cursor: pointer;
+    background: none;
+    border: none;
+    color: #fff;
+    width: 2.5em;
+    height: 2.5em;
+    border-radius: 2.5em;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    transition: none;
+    margin: 1rem 0;
+    appearance: none;
+}
+.pagination button[disabled] {
+    opacity: .4;
+    pointer-events: none;
+    border: none;
+}
+.pagination button.active {
+    background: white;
+    color: #333;
+}
+.pagination button:hover {
+    border: #fff .0625rem solid;
+}

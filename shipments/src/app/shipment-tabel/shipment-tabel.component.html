@@ -1,0 +1,80 @@
+
+<ng-container *ngIf="isLoading; else shipmentTabel">
+    <app-loader />
+</ng-container>
+<ng-template #shipmentTabel>
+    <table class="table">
+        <thead class="table-primary">
+            <tr>
+                <th>ORDERNO</th>
+                <th>DELIVERYDATE</th>
+                <th>CUSTOMER</th>
+                <th>TRACKINGNO</th>
+                <th>STATUS</th>
+                <th>CONSIGNEE</th>
+                <th colspan="2"></th>
+            </tr>
+        </thead>
+        <tbody>
+        @for (sh of shipments; track sh; let i = $index){
+            <tr>
+                <td>{{sh.orderNo}}"</td>
+                <td>{{sh.date}}</td>
+                <td>{{sh.customer}}</td>
+                <td>{{sh.trackingNo}}</td>
+                <td>{{sh.status}}</td>
+                <td>{{sh.consignee}}</td>
+                <td><button class="btn btn-primary btn-icon"  (click)="open(content); viewDetails(i)"><i class="bi bi-person-vcard"></i></button></td>
+                <td><button class="btn btn-danger btn-icon" (click)="deleteRow(i)"><i class="bi bi-x"></i></button></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+
+    <ng-template #content let-modal>
+        <div class="modal-header">
+            <h4 class="modal-title" id="modal-basic-title">Shipment details</h4>
+            <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+        </div>
+        <div class="modal-body">
+            <form [formGroup]="shipmentDetails">
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label class="form-label">orderNo</label>
+                        <input type="text" class="form-control" formControlName="orderNo">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label">date</label>
+                        <input type="text" class="form-control" formControlName="date">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label class="form-label">customer</label>
+                        <input type="text" class="form-control" formControlName="customer">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label">trackingNo</label>
+                        <input type="text" class="form-control" formControlName="trackingNo">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-6">
+                        <label class="form-label">consignee</label>
+                        <input type="text" class="form-control" formControlName="consignee">
+                    </div>
+                    <div class="col-6">
+                        <label class="form-label">status</label>
+                        <input type="text" class="form-control" formControlName="status">
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-info" (click)="modal.close('Save click'); changeDetails()">Save</button>
+        </div>
+    </ng-template>
+</ng-template>
+
+
+

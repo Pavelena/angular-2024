@@ -1,0 +1,21 @@
+<article *ngIf="article !== undefined && isLoaded">
+    <h1>{{ article.title }}</h1>
+    <div class="intro" [innerHtml]="article.intro | stringToHtml"></div>
+
+    <figure class="figure">
+        <img src="{{ article.image.large }}" alt="{{ article.image.alt }}">
+        <figcaption>{{ article.image.title }}</figcaption>
+    </figure>
+
+    <div [innerHtml]="article.body | stringToHtml">
+        <!-- {{ articles.body | stringToHtml }} -->
+    </div>
+
+    <div class="tags">
+        @for (t of article.tags; track t;){
+            <span>{{ t }}</span>
+        }
+    </div>
+</article>
+
+<app-loader *ngIf="!isLoaded" />

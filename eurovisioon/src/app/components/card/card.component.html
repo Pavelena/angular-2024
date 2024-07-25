@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="ratio ratio-2x3">
+        <img *ngIf="thumb!=''" src="{{ thumb}}" alt="">
+
+        <div *ngIf="thumb === ''" class="placeholder-image">
+            <i class="bi bi-card-image" aria-hidden="true"></i>
+        </div>
+    </div>
+
+    <div class="top-overlay bg-primary">
+        <img src="{{country_flag}}" alt="" class="me-1">{{country_name}} - {{year}}
+    </div>
+    
+    <div class="card-body">
+        <a class="btn btn-link icon-link p-0 text-start stretched-link" [routerLink]="[ '/aasta', year ]">{{jrk}}. {{ city }}</a>
+    </div>
+</div>

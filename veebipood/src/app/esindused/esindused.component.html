@@ -4,17 +4,10 @@
 <button class="btn" [class]="aktiivneLinn==='parnu' ? 'btn-primary' : 'btn-secondary'" (click)="muudaLinn('parnu')">P2rnu ({{ esindused["parnu"].length}})</button>
 
 <br><br>
-<button (click)="sorteeriAZ()">{{'sort.a-z' | translate}}</button>
-<button (click)="sorteeriZA()">{{'sort.z-a' | translate}}</button>
-<button (click)="sorteeriTahedKasv()">{{'sort.letters-asc' | translate}}</button>
-<button (click)="sorteeriTahedKah()">{{'sort.letters-desc' | translate}}</button>
-<button (click)="sorteeriKolmasTahtAZ()">Sorteeri kolmas t2ht A-Z</button>
+<app-sorteeri-nupud [poed]="esindused" [aktiivneLinn]="aktiivneLinn"/>
 
-<button (click)="filterEndsWithE()">J2ta alles e-ga l6ppevad</button>
-<button (click)="filterKellelOn9tathe()">J2ta alles 9 t2hte sisaldavad </button>
-<button (click)="filterKellelOnVah7Tahte()">J2ta alles v2hemalt 7 t2hte sisaldavad</button>
-<button (click)="filterKesSisaldabIsLyhendit()">J2ta alles kes sisaldavad 'is' lyhendit</button>
-<button (click)="filterKellelOnKolmasTahtI()">J2ta alles kellel on 3s t2ht 'i'</button>
+<app-filtreeri-nupud [poed]="esindused" [aktiivneLinn]="aktiivneLinn"/>
+
 
 @for ( esindus of esindused[aktiivneLinn]; track esindus; let i = $index) {
     <div>{{esindus}}</div>

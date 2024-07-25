@@ -1,0 +1,45 @@
+.bg-info {
+    color: $gray-800;
+    a, .btn-link {
+        color: inherit;
+        &:hover {
+
+        }
+    }
+}
+
+.icon-link > .bi {
+    line-height: 1;
+}
+.badge {
+    white-space: normal;
+    text-align: left;
+}
+
+.hero {
+    @include glass();
+    padding: 2.5rem;
+}
+.banner {
+    padding: 2.5rem;
+    box-shadow: inset 1px 1px $border-color, inset -1px -1px rgba($white, .1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    a {
+        text-decoration: none;
+    }
+    &.bg-frost {
+        @include glass();
+        box-shadow: inset 1px 1px $border-color, inset -1px -1px rgba($white, .1);
+    }
+    @each $color, $value in $theme-colors {
+        @if ($color == primary) {
+            --bs-primary-rgb: 254, 71, 224;
+        }
+        @if ($color == secondary) {
+            --bs-secondary-rgb: 134, 50, 190;
+        }
+    }
+}

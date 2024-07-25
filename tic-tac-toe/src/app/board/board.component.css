@@ -1,0 +1,25 @@
+.game-board {
+    border-radius: 1rem;
+    background-color: rgb(191, 201, 215);
+    width: 30rem;
+    height: 30rem;
+    margin: 2rem auto;
+    grid-template-columns: repeat(3,1fr);
+    display: grid;
+}
+.square {
+    border: 1px solid white;
+    cursor: pointer;
+    font-size: 3rem;
+    text-align: center;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.square i {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}

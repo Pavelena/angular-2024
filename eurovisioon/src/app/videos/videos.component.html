@@ -1,0 +1,23 @@
+<h1 class="mb-3">Videod</h1>
+
+<ng-container *ngIf="!isLoaded; else videosPage">
+    <app-loader />
+</ng-container>
+<ng-template #videosPage>
+    <div class="mb-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-3">
+            @for ( v of videos | slice: (page-1) * pageSize : page * pageSize; track v;) {
+                <div class="col">
+                    <app-video-card 
+                    [video_thumb]="v.video_thumb" 
+                    [video_embed]="v.video_embed"  
+                    [video_title]="v.video_title" />
+                </div>
+            }
+        </div>
+    </div>
+    
+    <ngb-pagination *ngIf="videos.length > pageSize" [(page)]="page" [pageSize]="pageSize" [collectionSize]="videos.length" [maxSize]="maxSize" [boundaryLinks]="true" class="d-flex justify-content-center" />
+</ng-template>
+
+

@@ -60,7 +60,7 @@
             <td>{{toode.hind}}</td>
             <td>{{toode.aktiivne}}</td>
             <td>
-                <button (click)="kustuta(i)" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
+                <button (click)="open(i)" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i></button>
             </td>
             <td>
                 <button [routerLink]="[ '/muuda-toode', toode.nimi ]" class="btn btn-info">Muuda</button>
@@ -69,3 +69,7 @@
     }
     </tbody>
 </table>
+
+<!-- Vasakpoolne on eventmitter (child componendist)
+parempoolne on siit componendist -->
+<app-modal (kustuta)="kustuta()"/>

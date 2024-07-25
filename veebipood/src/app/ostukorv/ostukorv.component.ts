@@ -1,37 +1,35 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { OstukorviToode } from '../models/ostukorvi-toode';
-import { Pakiautomaat } from '../models/pakiautomaat';
-import { Toode } from '../models/toode';
 import { PricePipe } from '../pipes/price.pipe';
 import { OstukorvService } from '../services/ostukorv.service';
-import { PakiautomaadidService } from '../services/pakiautomaadid.service';
 import { PaymentService } from '../services/payment.service';
+import { TotalSumService } from '../services/total-sum.service';
+import { PakiautomaadidComponent } from './pakiautomaadid/pakiautomaadid.component';
 
 @Component({
   selector: 'app-ostukorv',
   standalone: true,
-  imports: [CommonModule, PricePipe],
+  imports: [
+    CommonModule, 
+    PricePipe, 
+    PakiautomaadidComponent
+  ],
   templateUrl: './ostukorv.component.html',
   styleUrl: './ostukorv.component.css'
 })
 export class OstukorvComponent {
  tooted = this.ostukorvService.saaOstukorv();
- pakiautomaadid: Pakiautomaat[] = [];
 
   constructor (
     private ostukorvService: OstukorvService,
-    private pakiautomaadidService: PakiautomaadidService,
-    private paymentService: PaymentService
+    private paymentService: PaymentService,
+    private totalSumService: TotalSumService
   ){}
-
-  ngOnInit() {
-    this.pakiautomaadidService.saaPaakiautomaadid().subscribe(vastus => this.pakiautomaadid = vastus.filter(e => e.A0_NAME === "EE"))
-  }
 
  tyhjenda() {
   this.tooted = [];
   this.ostukorvService.uuendaOstukorv(this.tooted);
+  this.totalSumService.totalSum.next(this.kokku());
  }
 
  vahendaKogus(index: number) {
@@ -40,15 +38,18 @@ export class OstukorvComponent {
     this.tooted.splice(index,1);
   }
   this.ostukorvService.uuendaOstukorv(this.tooted);
+  this.totalSumService.totalSum.next(this.kokku());
  }
  suurendaKogus(index: number) {
   this.tooted[index].kogus++;
   this.ostukorvService.uuendaOstukorv(this.tooted);
+  this.totalSumService.totalSum.next(this.kokku());
  }
 
  kustuta(index: number){
   this.tooted.splice(index,1);
   this.ostukorvService.uuendaOstukorv(this.tooted);
+  this.totalSumService.totalSum.next(this.kokku());
  }
 //  lisa(toode: OstukorviToode){
 //   this.tooted.push(toode);
@@ -57,10 +58,10 @@ export class OstukorvComponent {
  kokku() {
   let sum = 0;
   this.tooted.forEach(t => sum += t.kogus * t.toode.hind);
-  return sum.toFixed(2);
+  return sum;
  }
  maksa() {
-  this.paymentService.makse().subscribe(vastus => {
+  this.paymentService.makse(this.kokku().toFixed(2)).subscribe(vastus => {
     console.log(vastus);
     window.location.href = vastus.payment_link;
   })

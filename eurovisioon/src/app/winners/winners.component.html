@@ -1,0 +1,46 @@
+<h1 class="mb-3">Eurovisiooni võitjad</h1>
+
+<ng-container *ngIf="!isLoaded; else winnersPage">
+    <app-loader />
+</ng-container>
+<ng-template #winnersPage>
+    <div class="filter-container mb-3">
+        <form>
+            <div class="d-flex justify-content-end align-items-center gap-2">
+                <label class="form-label m-0">Filtreeri:</label>
+                <select class="form-select form-select-sm w-auto" name="year" [(ngModel)]="year" (change)="filterByYear()">
+                    <option value="" selected>Aasta</option>
+                    @for ( y of years; track y;) {
+                        <option value="{{ y }}">{{ y }}</option>
+                    }
+                </select>
+                <select class="form-select form-select-sm w-auto" name="country" [(ngModel)]="country" (change)="filterByCountry()">
+                    <option value="" selected>Riik</option>
+                    @for ( c of countries; track c;) {
+                        <option value="{{ c }}">{{ c }}</option>
+                    }
+                </select>
+            </div>
+        </form>
+    </div>
+
+    <div class="mb-4">
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-3">
+            @for ( w of winners | slice: (page-1) * pageSize : page * pageSize; track w; let i = $index) {
+                <div class="col">
+                    <app-performer-card 
+                        [thumb]="w.thumb" 
+                        [video_embed]="w.video_embed"  
+                        [song]="w.song"
+                        [performer]="w.performer"
+                        [jrk]="w.jrk"
+                        [country_name]="w.country_name"
+                        [country_flag]="w.country_flag"
+                        [year]="w.year" />
+                </div>
+            }
+        </div>
+    </div>
+    
+    <ngb-pagination *ngIf="winners.length > pageSize" [(page)]="page" [pageSize]="pageSize" [collectionSize]="winners.length" class="d-flex justify-content-center" />
+</ng-template>

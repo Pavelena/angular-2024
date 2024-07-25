@@ -1,0 +1,10 @@
+.table {
+    th {
+        .btn {
+            font-weight: inherit;
+        }
+    }
+}
+.table-active {
+    --bs-table-active-color: #fff;
+}

@@ -1,0 +1,54 @@
+.card {
+    position: relative;
+    height: 100%;
+    .placeholder-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        i {
+            font-size: 2rem;
+        }
+    }
+    .bi-youtube {
+        font-size: 1.125rem;
+    }
+    .ratio {
+        img {
+            object-fit: cover;
+        }
+    }
+}
+.top-overlay {
+    position: absolute;
+    top: .5rem;
+    right: 0;
+    padding: 0.35em 0.65em;
+    font-size: 0.75rem;
+    font-weight: 700;
+    white-space: normal;
+    text-align: left;
+    display: inline-flex;
+    align-items: center;
+    img {
+        height: 1rem;
+    }
+}
+.btm-overlay {
+    position: absolute;
+    bottom: .5rem;
+    left: 0;
+    padding: 0.35em 0.65em;
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.75rem;
+    font-weight: 700;
+    .btn-link {
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-align: left;
+        display: inline-flex;
+        align-items: center;
+        line-height: 1.2;
+        padding: 0;
+    }
+}

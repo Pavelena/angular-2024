@@ -1,0 +1,45 @@
+.side-menu {
+    position: fixed;
+    background: #fff;
+    top: 0;
+    left: 0;
+    width: 220px;
+    padding: 1.5625rem;
+    height: 100vh;
+    z-index: 900;
+    overflow: auto;
+}
+.side-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.side-menu ul li a {
+    display: block;
+    padding: .7rem 1rem;
+    text-align: right;
+    margin: 0 -1.25rem;
+    text-decoration: none;
+    color: #3a3d57;
+    font-size: 1.1875rem;
+    text-transform: uppercase;
+    transition: transform .25s;
+    transform-origin: right center;
+}
+.side-menu ul li a i {
+    margin-left: .625rem;
+    display: inline-block;
+    transition: transform .25s;
+}
+.side-menu ul li a:hover {
+    color: #03875c;
+    transform: scale(1.05);
+}
+.side-menu ul li a.active {
+    color: #03875c;
+    transform: scale(1.05);
+}
+.logo {
+    margin: 1.5625rem 0 3.125rem;
+    cursor: pointer;
+}

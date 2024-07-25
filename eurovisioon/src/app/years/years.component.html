@@ -1,0 +1,22 @@
+<h1 class="mb-4">Tulemused aastate kaupa</h1>
+
+<ng-container *ngIf="!isLoaded; else yearsPage">
+    <app-loader />
+</ng-container>
+<ng-template #yearsPage>
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-3 mb-4">
+        @for ( y of years | slice: (page-1) * pageSize : page * pageSize; track y;) {
+            <div class="col">
+                <app-card 
+                    [thumb]="y.thumb" 
+                    [jrk]="y.jrk"
+                    [year]="y.year"
+                    [city]="y.city"  
+                    [country_name]="y.country_name"
+                    [country_flag]="y.country_flag" />
+            </div>
+        }
+    </div>
+
+    <ngb-pagination *ngIf="years.length > pageSize" [(page)]="page" [pageSize]="pageSize" [collectionSize]="years.length" class="d-flex justify-content-center" />
+</ng-template>

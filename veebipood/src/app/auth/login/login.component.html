@@ -1,0 +1,11 @@
+<form class="col-3 m-auto" #loginForm="ngForm" (submit)="login()">
+    <div class="mb-3">
+        <label for="user" class="form-label">Kasutajanimi</label>
+        <input type="text" class="form-control" id="user" name="user">
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Parool</label>
+        <input type="password" class="form-control" id="password" name="password">
+      </div>
+      <button type="submit" class="btn btn-primary">Logi sisse</button>
+</form>

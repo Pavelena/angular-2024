@@ -1,0 +1,20 @@
+<aside class="side-menu">
+    <img aria-label="TWN logo" class="logo" src="/assets/imgs/logo.svg">
+    <ul>
+        <li>
+            <a routerLinkActive="active" routerLink="/article" href="/article"> 
+                Artikkel <i aria-hidden="true" class="fa fa-file fa-md"></i>
+            </a>
+        </li>
+        <li>
+            <a routerLinkActive="active" routerLink="/table" href="/table"> 
+                Tabel <i aria-hidden="true" class="fa fa-table fa-md"></i>
+            </a>
+        </li>
+    </ul>
+</aside>
+<div class="page">
+    <div class="inline">
+        <router-outlet />
+    </div>
+</div>

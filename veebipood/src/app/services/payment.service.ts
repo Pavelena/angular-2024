@@ -9,13 +9,13 @@ import { environment } from '../../environments/environment.development';
 export class PaymentService {
 
   constructor(private http: HttpClient) { }
-  makse(): Observable <any> {
+  makse(summa: string): Observable <any> {
     const url = "https://igw-demo.every-pay.com/api/v4/payments/oneoff";
     const body = {
         "account_name": "EUR3D1",
         "nonce": "rr4" + new Date() + Math.random() * 99999,
         "timestamp": new Date(),
-        "amount": 14,
+        "amount": summa,
         "order_reference": Math.random() * 99999,
         "customer_url": "https://elena-veebipood.web.app/",
         "api_username": environment.everypay.username

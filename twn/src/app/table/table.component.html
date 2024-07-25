@@ -1,0 +1,85 @@
+<h1>Nimekiri</h1>
+
+
+<ng-container *ngIf="!isLoaded; else tableTemplate">
+    <app-loader />
+</ng-container>
+<ng-template #tableTemplate>
+    
+    <div class="table-wrapper">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <button (click)="sort('firstname')">
+                            Eesnimi 
+                            <i aria-hidden="true" class="fa fa-lg" [class]="sortIcon('firstname')"></i>
+                        </button>
+                    </th>
+                    <th>
+                        <button (click)="sort('surname')"> 
+                            Perekonnanimi 
+                            <i aria-hidden="true" class="fa fa-lg" [class]="sortIcon('surname')"></i>
+                        </button>
+                    </th>
+                    <th>
+                        <button (click)="sort('sex')"> 
+                            Sugu 
+                            <i aria-hidden="true" class="fa fa-lg" [class]="sortIcon('sex')"></i>
+                        </button>
+                    </th>
+                    <th>
+                        <button (click)="sort('personal_code')"> 
+                            Sünnikuupäev 
+                            <i aria-hidden="true" class="fa fa-lg" [class]="sortIcon('personal_code')"></i>
+                        </button>
+                    </th>
+                    <th>Telefon</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (l of list | slice: (activePage-1) * pageSize: activePage * pageSize; track l; let i = $index){
+                    <tr class="clickable" (click)="l.isExpanded = !l.isExpanded" [class.active]="l.isExpanded">
+                        <td style="width: 20%;">{{ l.firstname}}</td>
+                        <td style="width: 20%;">{{ l.surname}}</td>
+                        <td style="width: 20%;">{{ l.sex | sexFull }}</td>
+                        <td style="width: 20%;">{{ l.personal_code | birthday}}</td>
+                        <td style="width: 20%;">{{ l.phone | spaceToPhone }}</td>
+                    </tr>
+                    <tr *ngIf="l.isExpanded">
+                        <td colspan="5">
+                            <div class="tab">
+                                <div class="image">
+                                    <img src="{{ l.image.large }}" alt="{{ l.image.alt }}">
+                                </div>
+                                <div class="body">
+                                    <div [innerHtml]="l.body | shortener: 300 | stringToHtml"></div>
+                                    <a class="twn-button__small" [routerLink]="[ '/article', l.id ]" >Loe rohkem</a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <ul class="pagination">
+        <li>
+            <button aria-label="Navigate to previous page" [disabled] = "activePage === 1" (click)="changePage(activePage-1)">
+                <i aria-hidden="true" class="fa fa-chevron-left fa-md"></i>
+            </button>
+        </li>
+        @for (p of pages | slicePagination: activePage; track p) {
+            <li>
+                <button [class.active]="p === activePage" (click)="changePage(p)">{{ p }}</button>
+            </li>
+        }
+        <li>
+            <button aria-label="Navigate to next page" [disabled] = "activePage === pages[pages.length-1]" (click)="changePage(activePage+1)">
+                <i aria-hidden="true" class="fa fa-chevron-right fa-md"></i>
+            </button>
+        </li>
+        
+    </ul>
+</ng-template>

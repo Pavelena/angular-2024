@@ -1,0 +1,18 @@
+<h1 class="mb-3">Riikide andmed</h1>
+
+<ng-container *ngIf="!isLoaded; else countriesPage">
+    <app-loader />
+</ng-container>
+<ng-template #countriesPage>
+    <div class="tags-wrapper my-4">
+        <ul class="nav tags gap-2">
+            @for ( c of countries; track c;) {
+                <li class="nav-item">
+                    <a class="nav-link" [routerLink]="[ '/riigid', c.iso ]"><img src="{{ c.flag }}" alt="">{{ c.name }}</a>
+                </li>
+            }
+        </ul>
+    </div>
+</ng-template>
+
+

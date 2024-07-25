@@ -10,7 +10,8 @@
         "shops": "Halda poode",
         "pictures": "Halda pilte",
         "map": "Kaart poodidest",
-		"contact-us": "Kirjuta meile"
+		"contact-us": "Kirjuta meile",
+		"autod": "Autod"
 	},
 	"form": {
 		"product-name": "Toote nimi",

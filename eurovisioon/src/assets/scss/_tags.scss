@@ -1,0 +1,22 @@
+.tags {
+    //justify-content: center;
+    .nav-link {
+        color: $gray-800;
+        display: flex;
+        gap: 0.5rem;
+        align-items: center;
+        border-radius: 1rem;
+        font-weight: 700;
+        line-height: 1;
+        @include frost();
+        box-shadow: inset 1px 1px $border-color,inset -1px -1px rgba($white, .1);
+        img {
+            height: 1.75rem;
+        }
+        --bs-nav-link-padding-y: 0.35em;
+        --bs-nav-link-padding-x: 0.65em;
+        &:hover {
+            background-color: #fff;
+        }
+    }
+}

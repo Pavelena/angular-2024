@@ -1,0 +1,98 @@
+//Slick
+.slide {
+    margin-left: calc(0.5 * var(--bs-gutter-x));
+    margin-right: calc(0.5 * var(--bs-gutter-x));
+    .card {
+        margin: 0;
+        box-shadow: inset 1px 1px $border-color, inset -1px -1px rgba($white, .1);
+    }
+}
+.slick-slider {
+    margin-left: calc(-0.5 * var(--bs-gutter-x));
+    margin-right: calc(-0.5 * var(--bs-gutter-x));
+}
+.slick-track {
+    display: flex;
+}
+.slick-slide {
+    float: none;
+    height: auto;
+}
+/* Arrows */
+
+.slick-prev,
+.slick-next {
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    height: auto;
+    width: $carousel-control-width;
+    background: transparent;
+    color: transparent;
+    top: 0;
+    bottom:0;
+    transform: none;
+    z-index: 1;
+    text-align: center;
+    opacity: $carousel-control-opacity;
+    color: $carousel-control-color;
+    @include transition($carousel-control-transition);
+    &:hover, &:focus {
+        text-decoration: none;
+        background: transparent;
+        color: $carousel-control-color;
+        opacity: $carousel-control-hover-opacity;
+        &:before {
+            opacity: inherit;
+        }
+    }
+    &.slick-disabled:before {
+        opacity: inherit;
+    }
+    &:before {
+        display: inline-block;
+        width: $carousel-control-icon-width;
+        height: $carousel-control-icon-width;
+        color: inherit;
+        opacity: inherit;
+        background-repeat: no-repeat;
+        background-position: 50%;
+        background-size: 100% 100%;
+    }
+}
+
+.slick-prev {
+    left: -2.5rem;
+    background-image: if($enable-gradients, linear-gradient(90deg, rgba($black, .25), rgba($black, .001)), null);
+    &:before {
+        background-image: escape-svg($carousel-control-prev-icon-bg) #{"/*rtl:" + escape-svg($carousel-control-next-icon-bg) + "*/"};
+        content: "";
+    }
+}
+
+.slick-next {
+    right: -2.5rem;
+    background-image: if($enable-gradients, linear-gradient(270deg, rgba($black, .25), rgba($black, .001)), null);
+    &:before {
+        background-image: escape-svg($carousel-control-next-icon-bg) #{"/*rtl:" + escape-svg($carousel-control-prev-icon-bg) + "*/"};
+        content: "";
+    }
+}
+.slick-disabled {
+    display: none !important;
+}
+.slick-dots {
+    bottom: -2rem;
+    li {
+        margin: 0 2px;
+        button {
+            &:before {
+                font-size: 0.75rem;
+                color: #fff;
+            }
+        }
+        &.slick-active button:before {
+            color: #fff;
+        }
+    }
+}

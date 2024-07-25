@@ -1,0 +1,18 @@
+<h1 class="text-center my-5">Edetabel</h1>
+
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nimi</th>
+        <th scope="col">Võite</th>
+      </tr>
+    </thead>
+    <tbody>
+        @for ( w of winners; track w; let i = $index) {
+            <tr class="table-light">
+                <th scope="row">{{w.name}}</th>
+                <td>{{w.wins}}</td>
+            </tr>
+        }
+        
+  </table>

@@ -25,24 +25,14 @@
             }
         </tbody>
         <tr>
-            <td colspan="5" class=" py-3">Summa: {{ kokku() }} </td>
+            <td colspan="5" class=" py-3">Summa: {{ kokku() | price }} </td>
         </tr>
         <tr>
             <button (click)="maksa()">Maksa</button>
         </tr>
     </table>
     
-
-    <h2>Tarnimine</h2>
-    <div class="row mb-4">
-        <div class="col-2">
-            <select class="form-select">
-                @for ( pm of pakiautomaadid; track pm;) {
-                    <option> {{ pm.NAME }}</option>
-                }
-            </select>
-        </div>
-    </div>
+<app-pakiautomaadid />
     
 </ng-template>
 

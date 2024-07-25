@@ -1,0 +1,7 @@
+.navbar-dark, .navbar[data-bs-theme=dark] {
+    --bs-navbar-color: rgba(255, 255, 255, 1);
+    
+    .nav-link {
+        --bs-nav-link-padding-y: 0;
+    }
+}

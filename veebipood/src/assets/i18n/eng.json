@@ -10,7 +10,8 @@
         "shops": "Maintain shops",
         "pictures": "Maintain pictures",
         "map": "Map",
-		"contact-us": "Contact us"
+		"contact-us": "Contact us",
+		"autod": "Cars"
 	},
 	"form": {
 		"product-name": "Product name",

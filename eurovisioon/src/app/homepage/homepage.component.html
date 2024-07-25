@@ -1,0 +1,51 @@
+<div *ngIf="isLoaded">
+    <ngx-slick-carousel class="carousel mb-5" #slickHero="slick-carousel" [config]="singleSlideConfig">
+        <div ngxSlickItem class="slide">
+            <div class="banner bg-frost">
+                <div class="row">
+                    <div class="col-md-9">
+                        <h1 class="mb-4">{{ title.title }}</h1>
+                        <p>{{ title.text1 }}</p>
+                        <p [innerHtml]="title.text2 | sanitizer"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div ngxSlickItem class="slide">
+            <div class="bg-primary banner">
+                <h1 class="mb-4"><a href="https://www.eurovisioon.ee/eestilaul.php?id=2024">Eesti laul 2024</a></h1>
+            </div>
+            
+        </div>
+        <div ngxSlickItem class="slide">
+            <div class="bg-primary banner">
+                <h1 class="mb-4"><a href="https://www.eurovisioon.ee/bigpoll2024.php">Big poll 2024</a></h1>
+            </div>
+            
+        </div>
+        <div ngxSlickItem class="slide">
+            <div class="bg-secondary banner text-center">
+                <h1 class="mb-4">Hääletus <br> "Parim Eurovisiooni laul 2024"</h1>
+            </div>
+        </div>
+    </ngx-slick-carousel>
+
+    <div class="d-flex align-items-center justify-content-between mb-3">
+        <h2>Viimased videod</h2>
+        <a href="#" routerLink="videod" class="btn btn-info btn-sm icon-link">
+            <i class="bi bi-arrow-right" aria-hidden="true"></i>
+            Kõik videod
+        </a>
+    </div>
+
+    <ngx-slick-carousel class="carousel mb-4" #slickModal="slick-carousel" [config]="slideConfig">
+        @for (v of videos; track v;) {
+            <div ngxSlickItem class="slide">
+                <app-video-card 
+                [video_thumb]="v.video_thumb" 
+                [video_embed]="v.video_embed"  
+                [video_title]="v.video_title" />
+            </div>
+        }
+    </ngx-slick-carousel>
+</div>

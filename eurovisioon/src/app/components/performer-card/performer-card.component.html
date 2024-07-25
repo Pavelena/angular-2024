@@ -1,0 +1,50 @@
+<div class="card">
+    <div class="ratio ratio-2x3">
+        <img *ngIf="thumb && thumb!=''" src="{{ thumb}}" alt="">
+
+        <div *ngIf="!thumb || thumb === ''" class="placeholder-image bg-secondary">
+            <i class="bi bi-card-image" aria-hidden="true"></i>
+        </div>
+    </div>
+
+    <div class="top-overlay bg-primary">
+        <img src="{{country_flag}}" alt="" class="me-1">{{ country_name }} <span *ngIf="year"> - {{ year }}</span>
+    </div>
+
+    <!-- <div class="btm-overlay bg-info">
+        {{jrk}}.
+        <button *ngIf="video_embed!=''" class="btn btn-link ms-1 icon-link stretched-link text-start" (click)="playVideo(content, video_embed)">
+            <span *ngIf="video_title">{{video_title}}</span>
+            <span *ngIf="!video_title">{{performer}} - {{ song }}</span>
+            <i class="bi bi-youtube ms-1" aria-hidden="true"></i>
+        </button>
+        <span *ngIf="video_embed ===''" class="ms-1">
+            <span *ngIf="video_title">{{video_title}}</span>
+            <span *ngIf="!video_title">{{performer}} - {{ song }}</span>
+        </span>
+    </div> -->
+    
+    <div class="card-body">
+        
+        <button  *ngIf="video_embed!=''" class="btn btn-link icon-link p-0 text-start stretched-link" (click)="playVideo(content, video_embed)">
+            <span *ngIf="video_title">{{jrk}}. {{video_title}}</span>
+            <span *ngIf="!video_title">{{jrk}}. {{performer}} - {{ song }}</span>
+            <i class="bi bi-youtube ms-1" aria-hidden="true"></i>
+        </button>
+        <span *ngIf="video_embed ===''">
+            <span *ngIf="video_title">{{jrk}}. {{video_title}}</span>
+            <span *ngIf="!video_title">{{jrk}}. {{performer}} - {{ song }}</span>
+        </span>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-header">
+        <button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+    </div>
+    <div class="modal-body p-0">
+        <div class="ratio ratio-16x9">
+            <iframe [src]="embedLink" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay;" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+</ng-template>

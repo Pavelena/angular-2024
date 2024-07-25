@@ -1,0 +1,7 @@
+.card {
+    @each $color, $value in $theme-colors {
+        @if ($color == secondary) {
+        --bs-secondary-rgb: 104, 109, 195;
+        }
+    }
+}

@@ -1,0 +1,37 @@
+<h1 class="text-center my-5">Tic Tac Toe</h1>
+<ng-container *ngIf="gameStart===false; else gameBoard">
+    <form  #playersForm="ngForm" (submit)="addPlayers(playersForm)">
+        <div class="row my-4">
+            <div class="col-3 offset-2">
+                <label class="form-label d-block text-center">Mängija 1</label>
+                <input type="text" name="player1" class="form-control" ngModel>
+            </div>
+            <div class="col-3 offset-2 d-block text-center">
+                <label class="form-label">Mängija 2</label>
+                <input type="text" name="player2" class="form-control" ngModel>
+            </div>
+        </div>
+        <div class="row my-5">
+            <div class="col-6 offset-3 text-center">
+                <button type="submit" class="btn btn-success">Hakka mängima <i class="bi bi-controller"></i></button>
+            </div>
+        </div>
+    </form>
+</ng-container>
+
+<ng-template #gameBoard>
+    <h2 class="text-center mt-5 mb-3" *ngIf="!winner"> Mängija "{{ turn }}" kord</h2>
+    <h3 class="text-center" *ngIf="winner">Võitja on "{{ winner }}"</h3>
+    <div class="game-board">
+        @for ( b of board; track b; let i = $index) {
+            <div class="square" (click)="makeMove(i)">
+                <i class="bi bi-x-lg" *ngIf="b===player1" [class.text-danger]="b===player1"></i>
+                <i class="bi bi-circle" *ngIf="b===player2" [class.text-primary]="b===player2"></i>
+            </div>
+        }
+        
+    </div>
+
+    <div class="text-center" *ngIf="winner"><button type="button" (click)="newGame()" class="btn btn-success">Uus mäng <i class="bi bi-controller"></i></button></div>
+</ng-template>
+

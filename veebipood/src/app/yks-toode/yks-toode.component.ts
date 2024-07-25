@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { LoaderComponent } from '../loader/loader.component';
+import { LoaderComponent } from '../components/loader/loader.component';
 import { Toode } from '../models/toode';
 import { ToodeService } from '../services/toode.service';
 

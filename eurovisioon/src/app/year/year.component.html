@@ -1,0 +1,68 @@
+<ng-container *ngIf="!isLoaded; else yearPage">
+    <app-loader />
+</ng-container>
+<ng-template #yearPage>
+    <h1 class="mb-4 d-flex gap-2 align-items-center"><img src="{{ contest.country_flag }}" alt="" height="40"> {{ contest.city }} {{ contest.year }}</h1>
+
+    <ul ngbNav #nav="ngbNav"  class="nav-tabs">
+        <li [ngbNavItem]="1">
+            <button ngbNavLink>Finaal</button>
+            <ng-template ngbNavContent>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-3 mb-4">
+                    @for ( f of contest.final; track f;) {
+                        <div class="col">
+                            <app-performer-card 
+                            [thumb]="f.thumb" 
+                            [video_embed]="f.video_embed"  
+                            [song]="f.song"
+                            [performer]="f.performer"
+                            [jrk]="f.jrk"
+                            [country_name]="f.country_name"
+                            [country_flag]="f.country_flag" />
+                        </div>
+                    }
+                </div>
+            </ng-template>
+        </li>
+        <li [ngbNavItem]="2" *ngIf="contest.semi1">
+            <button ngbNavLink>Esimene poolfinaal</button>
+            <ng-template ngbNavContent>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-3 mb-4">
+                    @for ( f of contest.semi1; track f;) {
+                        <div class="col">
+                            <app-performer-card 
+                            [thumb]="f.thumb" 
+                            [video_embed]="f.video_embed"  
+                            [song]="f.song"
+                            [performer]="f.performer"
+                            [jrk]="f.jrk"
+                            [country_name]="f.country_name"
+                            [country_flag]="f.country_flag" />
+                        </div>
+                    }
+                </div>
+            </ng-template>
+        </li>
+        <li [ngbNavItem]="3" *ngIf="contest.semi2">
+            <button ngbNavLink>Teine poolfinaal</button>
+            <ng-template ngbNavContent>
+                <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 g-3 mb-4">
+                    @for ( f of contest.semi2; track f;) {
+                        <div class="col">
+                            <app-performer-card 
+                            [thumb]="f.thumb" 
+                            [video_embed]="f.video_embed"  
+                            [song]="f.song"
+                            [performer]="f.performer"
+                            [jrk]="f.jrk"
+                            [country_name]="f.country_name"
+                            [country_flag]="f.country_flag" />
+                        </div>
+                    }
+                </div>
+            </ng-template>
+        </li>
+    </ul>
+    <div [ngbNavOutlet]="nav" class="mt-4"></div>
+</ng-template>
+

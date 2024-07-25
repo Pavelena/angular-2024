@@ -1,0 +1,49 @@
+$purple: #686dc3;
+$pink:    #e83283 !default;
+$navy: #0010a3;
+//$cyan:   #1dc1df !default;
+
+// $purple: #643c9c !default;
+// $pink:   #fe47e0 !default;
+// $cyan:   #1dc1df !default;
+
+
+$primary:   $pink !default;
+$secondary: $purple;
+$secondary-rgb: 104, 109, 195;
+
+$min-contrast-ratio: 4.5 !default;
+
+$aspect-ratios: (
+  "1x1": 100%,
+  "2x3": calc(2 / 3 * 100%),
+  "4x3": calc(3 / 4 * 100%),
+  "16x9": calc(9 / 16 * 100%),
+  "21x9": calc(9 / 21 * 100%)
+) !default;
+
+// Spacing
+
+$spacer: 1.5rem !default;
+
+//border-radius
+$border-radius:               0 !default;
+$border-radius-sm:            0 !default;
+$border-radius-lg:            0 !default;
+$border-radius-pill:          0 !default;
+//Navbar 
+$navbar-brand-margin-end: 0;
+
+//modal
+$modal-header-padding-x:   1rem;
+$modal-header-padding-y:   1rem;
+
+$list-group-item-padding-x: 1.5rem;
+
+// Cards
+
+$card-spacer-y: $spacer * 0.5;
+$card-spacer-x: $spacer;
+
+//Slick
+$carousel-control-width: 2.5rem;
